@@ -9,7 +9,6 @@ const LandingScreen = () => {
   return (
     <div>
       {/* <Container> */}
-        <Navbar />
         <Sidebar />
       {/* </Container> */}
     </div>
