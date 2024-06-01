@@ -98,7 +98,7 @@ const Navbar = () => {
             </NavButton>
           </NavLogo>
           <NavItems>
-            <NavLink>Exotic Fruits & Vegg</NavLink>
+            <NavLink >Exotic Fruits & Vegg</NavLink>
             {/* <NavLink /> */}
             <NavLink>Tea</NavLink>
             {/* <NavLink /> */}

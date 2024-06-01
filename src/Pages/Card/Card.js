@@ -2,7 +2,7 @@ import React from 'react'
 
 const Card = () => {
   return (
-    <div>
+    <div style={{marginTop:'100px'}}>
       {'MURUGA'}
     </div>
   )

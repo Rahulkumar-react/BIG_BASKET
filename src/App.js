@@ -7,11 +7,11 @@ import Router from './Router';
 
 function App() {
   return (
-    <ThemeProvider theme={darkTheme}>
+    // <ThemeProvider theme={darkTheme}>
       <BrowserRouter>
         <Router />
       </BrowserRouter>
-    </ThemeProvider>
+    // </ThemeProvider>
   );
 }
 
