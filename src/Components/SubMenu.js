@@ -30,7 +30,7 @@ const SidebarLabel = styled.span`
 `;
 
 const DropdownLink = styled(Link)`
-  background: white;
+  background: #f7f7f7;
   height: 30px;
   padding-left: 1rem;
   display: flex;
@@ -80,7 +80,7 @@ const SubMenu = ({ item }) => {
         item.subNav.map((subItem, index) => {
           return (
             <>
-              <DropdownLink to={subItem.path} key={index}>
+              <DropdownLink to={subItem.path} key={index} >
               <StyledCheckboxInput />
                 <SidebarLabel>{subItem.title}</SidebarLabel>
               </DropdownLink>

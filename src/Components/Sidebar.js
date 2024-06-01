@@ -6,7 +6,7 @@ import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
 import { IconContext } from "react-icons/lib";
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 
 const Nav = styled.div`
   background: #15171c;
@@ -27,14 +27,14 @@ const NavIcon = styled(Link)`
 `;
 
 const SidebarNav = styled.nav`
-  width: 280px;
+  width: 18%;
   height: 100vh;
   border: 1px solid #eeeeee;
   display: flex;
   border-radius: 4px;
   justify-content: center;
   /* Removed fixed positioning */
-  margin-left: ${({ sidebar }) => (sidebar ? "250px" : "0")};
+  margin-left: ${({ sidebar }) => (sidebar ? "160px" : "0")};
   transition: margin-left 0.3s ease;
   overflow-y: auto;
   overflow-x: hidden;
@@ -113,10 +113,10 @@ const Sidebar = () => {
 
   return (
     <>
-      <IconContext.Provider value={{ color: "#fff" }}>
+      {/* <IconContext.Provider value={{ color: "#fff" }}> */}
+      <div style={{backgroundColor:"#f7f7f7"}}>
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
-
             <Heading>Shop by Category</Heading>
             <Container>
               <InnerContainer>
@@ -137,11 +137,12 @@ const Sidebar = () => {
               <AiIcons.AiOutlineClose onClick={showSidebar} />
             </NavIcon>
             {SidebarData.map((item, index) => {
-              return <SubMenu item={item} key={index} />;
+              return <SubMenu item={item} key={index}/>
             })}
           </SidebarWrap>
         </SidebarNav>
-      </IconContext.Provider>
+      {/* </IconContext.Provider> */}
+      </div>
     </>
   );
 };

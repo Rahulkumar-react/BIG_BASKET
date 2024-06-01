@@ -4,14 +4,14 @@ import _default from "../../themes/default";
 
 export const Nav = styled.div`
   background-color: ${({ theme }) => theme.card_light};
-  height: 80px;
+  // height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
   position: sticky;
   top: 0;
-  // z-index: 10;
+  z-index: 10;
   @media (max-width: 960px) {
     trastion: 0.8s all ease;
   }
@@ -27,7 +27,7 @@ export const NavbarContainer = styled.div`
   max-width: 1200px;
 `;
 export const NavLogo = styled(LinkR)`
-  width: 20%;
+  width: 18%;
   padding: 0 6px;
   display: flex;
   justify-content: start;
@@ -51,10 +51,10 @@ export const MobileIcon = styled.div`
   }
 `;
 export const NavItems = styled.ul`
-  width: 90%;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   gap: 32px;
   padding: 0 6px 0px -40px;
   list-style: none;
@@ -104,7 +104,7 @@ export const Logaion = styled.div`
   //   background-color: '#eeeeee';
   border-radius: 5px;
   width: 17%;
-  height: 6vh;
+  height: 7vh;
 `;
 export const Texticon = styled.p`
   color: #606060; /* Set text color */
@@ -122,7 +122,7 @@ export const Logaionbutton = styled.div`
   //   background-color: '#eeeeee';
   border-radius: 5px;
   width: 13%;
-  height: 6vh;
+  height: 7vh;
 `;
 export const Loginbutton = styled.p`
   color:white; /* Set text color */
@@ -139,8 +139,9 @@ export const Loginbutton = styled.p`
 export const Deleteicon = styled.div`
   //   background-color: '#eeeeee';
   border-radius: 5px;
-  width: 5%;
-  height: 6vh;
+  // width: 5%;
+  // height: 6vh;
+  padding: 8px 8px 4px 8px;
 `;
 export const NavLink = styled.a`
   color: ${({ theme }) => theme.text_primary};
@@ -165,9 +166,10 @@ export const NavButton = styled.button`
 `;
 export const Loginimage = styled.div`
   //   background-color: '#eeeeee';
+  gap: 10px;
   border-radius: 5px;
   width: 18%;
-  height: 5vh;
+  // height: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -190,4 +192,8 @@ margin-bottom: 15px;
 export const FilterButton = styled.div`
 display: flex;
 justify-content: space-between;
+`;
+
+export const Grid = styled.div`
+    text-align: start;
 `;

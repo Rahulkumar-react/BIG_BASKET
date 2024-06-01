@@ -1,11 +1,13 @@
 import React from "react";
 import { FaBars } from "react-icons/fa";
 import SearchIcon from "@mui/icons-material/Search";
-import Delete from "../Assets/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iMTIiIGZpbGw9IiNENjMzMzMiLz48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZ.svg";
-import Logo from "../Assets/logo.png";
-import Next from "../Assets/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbD0iZmFsc2UiIGNsYXNzPSJjdXJzb3ItcG9pbnRlciI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im05L.svg";
+// import Delete from "../Assets/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iMTIiIGZpbGw9IiNENjMzMzMiLz48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZ.svg";
+import Logo from "../Assets/BigBasKetLogo.png";
+// import Next from "../Assets/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbD0iZmFsc2UiIGNsYXNzPSJjdXJzb3ItcG9pbnRlciI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im05L.svg";
 import Smart from "../Assets/Smart_basket-250124-1.png";
 import Offer from "../Assets/hp_cmc_m_offer_28_220921_all.png";
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import {
   Boximage,
   Deleteicon,
@@ -23,9 +25,11 @@ import {
   NavbarContainer,
   SearchContainer,
   Texticon,
+  Grid
 } from "./NavbarStyleComponents";
 import Sidebar from "../../Components/Sidebar";
-import { Container } from "@mui/material";
+import { Container} from "@mui/material";
+import ProductFilter from '../../Components/ProductFilter';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -42,11 +46,7 @@ const Navbar = () => {
             />
           </MobileIcon>
           <NavLogo>
-            <Img
-              src={Logo}
-              style={{ height: "50%", width: "60%" }}
-              alt="hero-image"
-            />
+            <Img src={Logo} style={{ width: "65%" }} alt="hero-image" />
           </NavLogo>
           <NavItems>
             <SearchContainer>
@@ -64,17 +64,26 @@ const Navbar = () => {
               <Loginbutton>Login/SingUp</Loginbutton>
             </Logaionbutton>
             <Deleteicon style={{ background: "#fae6e6" }}>
-              <Img
+              {/* <Img
                 style={{ height: "38px", width: "38px", padding: "6px" }}
                 src={Delete}
                 alt="Delete-image"
+              /> */}
+              <ShoppingBasketIcon
+                sx={{
+                  fontSize: "20px",
+                  backgroundColor: "red",
+                  color: "white",
+                  padding: "4px 5px 5px 5px ",
+                  borderRadius: "50%",
+                }}
               />
             </Deleteicon>
           </NavItems>
         </NavbarContainer>
       </Nav>
 
-      <Nav style={{ boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.1)" }}>
+      <Nav>
         <NavbarContainer>
           <MobileIcon>
             <FaBars
@@ -90,19 +99,15 @@ const Navbar = () => {
           </NavLogo>
           <NavItems>
             <NavLink>Exotic Fruits & Vegg</NavLink>
-            <NavLink />
+            {/* <NavLink /> */}
             <NavLink>Tea</NavLink>
-            <NavLink />
+            {/* <NavLink /> */}
             <NavLink>Ghee</NavLink>
-            <NavLink />
+            {/* <NavLink /> */}
             <NavLink>Nandini</NavLink>
+            <NavLink>Fresh Vegetables</NavLink>
             <NavLink>
-              {" "}
-              <Img
-                style={{ height: "20px", width: "20px", padding: "6px" }}
-                src={Next}
-                alt="Delete-image"
-              />
+              <KeyboardDoubleArrowRightIcon />
             </NavLink>
           </NavItems>
           <Loginimage>
@@ -115,10 +120,13 @@ const Navbar = () => {
           </Loginimage>
         </NavbarContainer>
       </Nav>
+      {/* <Grid key={1}>
+        <ProductFilter />
+      </Grid> */}
       {/* <Container > */}
-        {/* <NavbarContainer> */}
-          
-        {/* </NavbarContainer> */}
+      {/* <NavbarContainer> */}
+
+      {/* </NavbarContainer> */}
       {/* </Container > */}
     </>
   );
