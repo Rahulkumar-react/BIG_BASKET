@@ -30,12 +30,17 @@ import {
 import Sidebar from "../../Components/Sidebar";
 import { Container} from "@mui/material";
 import ProductFilter from '../../Components/ProductFilter';
+import Signin from "./Signin";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <>
+    <Signin open={open} onClose={handleClose} />
       <Nav>
         <NavbarContainer>
           <MobileIcon>
@@ -61,7 +66,7 @@ const Navbar = () => {
               </Texticon>
             </Logaion>
             <Logaionbutton style={{ background: "#202020" }}>
-              <Loginbutton>Login/SingUp</Loginbutton>
+              <Loginbutton onClick={handleOpen}>Login/SingUp</Loginbutton>
             </Logaionbutton>
             <Deleteicon style={{ background: "#fae6e6" }}>
               {/* <Img
@@ -120,7 +125,7 @@ const Navbar = () => {
           </Loginimage>
         </NavbarContainer>
       </Nav>
-      {/* <Grid key={1}>
+      {/* <Grid>
         <ProductFilter />
       </Grid> */}
       {/* <Container > */}
