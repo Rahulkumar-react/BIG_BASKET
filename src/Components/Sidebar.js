@@ -113,8 +113,16 @@ const SideBar = () => {
             {text.subItems.map((subItem, subIndex) => (
               // <ListItem key={subItem.name} sx={{ pl: 4 }}>
               <ListItemButton onClick={() => navigate(subItem.path)}>
-                <input style={{height:'20px',width:'20px',margin:'8px',border:' 3px solid #c4c4c4'}} type="checkbox" />
-                 <ListItemText primary={subItem.name} />
+                <input
+                  style={{
+                    height: "20px",
+                    width: "20px",
+                    margin: "8px",
+                    border: " 3px solid #c4c4c4",
+                  }}
+                  type="checkbox"
+                />
+                <ListItemText primary={subItem.name} />
               </ListItemButton>
               // </ListItem>
             ))}
@@ -141,84 +149,64 @@ const SideBar = () => {
         >
           <Navbar />
         </AppBar>
-        <Box
+        {/* <Box
           component="nav"
           sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
           aria-label="mailbox folders"
+        > */}
+        <Drawer
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true,
+          }}
+          sx={{
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+              // background: "#f7f7f7",
+              color: "black",
+              marginTop: "100px",
+              borderRadius: "3px",
+            },
+          }}
+          onClick={handleDrawerToggle}
         >
-          <Drawer
-            variant="temporary"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{
-              keepMounted: true,
-            }}
-            sx={{
-              display: { xs: "block", sm: "none" },
-              "& .MuiDrawer-paper": {
-                boxSizing: "border-box",
-                width: drawerWidth,
-                background: "#f7f7f7",
-                color: "black",
-                marginTop: "100px",
-                borderRadius: "3px",
-              },
-            }}
-            onClick={handleDrawerToggle}
-          >
-            {drawer}
-          </Drawer>
-          <Drawer
-            variant="permanent"
-            sx={{
-              display: { xs: "none", sm: "block" },
-              "& .MuiDrawer-paper": {
-                boxSizing: "border-box",
-                width: drawerWidth,
-                background: "#f7f7f7",
-                marginTop: "140px",
-                marginLeft: "280px",
-                border: "1px solid #eeeeee",
-                color: "black",
-                borderRadius: "3px",
-                overflowY: "auto",
-                overflowX: "hidden",
-                "&::-webkit-scrollbar": {
-                  width: 0,
-                  height: 4, // Set the height of the scrollbar
-                },
-                "&:hover": {
-                  "&::-webkit-scrollbar": {
-                    width: 4, // Adjust the width when hovered
-                  },
-                },
-                "&::-webkit-scrollbar-thumb": {
-                  background: "#888",
-                  borderRadius: "10px",
-                },
-                "&::-webkit-scrollbar-thumb:hover": {
-                  background: "#555",
-                },
-                "&::-webkit-scrollbar-track": {
-                  background: "transparent",
-                },
-              },
-            }}
-            open
-          >
-            {drawer}
-          </Drawer>
-        </Box>
+          {drawer}
+        </Drawer>
+        <Drawer
+          variant="permanent"
+          sx={{
+            "& .MuiDrawer-paper": {
+              height: "auto",
+              boxSizing: "border-box",
+              width: drawerWidth,
+              border: "1px solid #eeeeee",
+              color: "black",
+              borderRadius: "3px",
+              position: "sticky",
+              top: "135px",
+              overflowY: "auto",
+            },
+          }}
+          open
+        >
+          {drawer}
+        </Drawer>
+
+        {/* </Box> */}
         <Box
           component="main"
           sx={{
             flexGrow: 1,
             p: 3,
             width: { sm: `calc(100% - ${drawerWidth}px)` },
-            marginLeft: "280px",
+            // marginLeft: "280px",
           }}
         >
-          <Toolbar />
+          {/* <Toolbar /> */}
           <Outlet />
         </Box>
       </Box>

@@ -2,6 +2,7 @@ import {
   Box,
   Breadcrumbs,
   Button,
+  Container,
   Grid,
   Link,
   Typography,
@@ -38,11 +39,16 @@ const ProductFilter = () => {
   };
 
   return (
-    <Box sx={{ mt: 3 }}>
+    <Box
+      sx={{
+        position: "relative", // or 'absolute' depending on your layout needs
+        top: "28px",
+      }}
+    >
+      {/* <Container maxWidth= 'lg'> */}
       <FilterNav>
         <div role="presentation" onClick={handleClick}>
-          
-          {/* <Breadcrumbs aria-label="breadcrumb">
+          <Breadcrumbs aria-label="breadcrumb">
             <Link
               underline="hover"
               sx={{ display: "flex", alignItems: "center", fontSize: "15px" }}
@@ -66,7 +72,7 @@ const ProductFilter = () => {
             >
               Exotic Fruits & Veggies
             </Typography>
-          </Breadcrumbs> */}
+          </Breadcrumbs>
         </div>
         <ProductCounts>Exotic Fruits & Veggies(439)</ProductCounts>
         <FilterButton>
@@ -121,6 +127,7 @@ const ProductFilter = () => {
           color: "#d5d5d5",
         }}
       />
+      {/* </Container> */}
     </Box>
   );
 };

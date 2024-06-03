@@ -198,3 +198,61 @@ justify-content: space-between;
 export const Grid = styled.div`
     text-align: start;
 `;
+export const Choose = styled.p`
+  font-size: 14px;
+  font-weight: lighter;
+  text-align: center;
+`;
+
+export const ImageLogin = styled.img`
+  width: 20%;
+`;
+
+export const ImageName = styled.p`
+  font-size: 10px;
+`;
+
+export const LoginCointaner = styled.div`
+  text-align: start;
+`;
+
+export const LoginHeading = styled.p`
+  font-size: 18px;
+  text-align: start;
+  font-weight: 600;
+  margin: 10px 0px 0px 0px;
+  color: white;
+`;
+
+export const Otp = styled.p`
+  font-size: 12px;
+  text-align: start;
+  margin: 0px 0px 40px 0px;
+  text-decoration: underline;
+  text-decoration-color: #ff8800;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  color: white;
+`;
+
+export const Policy = styled.p`
+  font-size: 12px;
+  text-align: center;
+  color: #70705e;
+  margin-bottom: 0px;
+  margin-top: 0px;
+`;
+
+export const SocialMedia = styled.div`
+    display: flex;
+    
+`
+
+export const SocialTitle = styled.p`
+    font-size: 10px;
+    text-align: center;
+`
+
+export const SocialImg = styled.img`
+    width: 100%;
+`

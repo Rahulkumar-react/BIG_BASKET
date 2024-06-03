@@ -1,7 +1,7 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
 import LandingScreen from "./Pages/LandingScreen";
-import Card from "./Pages/Card/Card";
+import ProductCard from "./Pages/Card/ProductCard";
 
 const Router = () => {
   return useRoutes([
@@ -9,8 +9,8 @@ const Router = () => {
       path: "/",
       element: <LandingScreen />,
       children: [
-        { path: "dashboard", element: <Card /> },
-        { path: "CreateEmployee", element: <Card /> },
+        { path: "dashboard", element: <ProductCard /> },
+        { path: "CreateEmployee", element: <ProductCard /> },
       ],
     },
   ]);
