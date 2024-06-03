@@ -83,6 +83,7 @@ const ProductFilter = () => {
               onClick={handlecontent}
               sx={{
                 color: "black",
+                backgroundColor: "white",
                 borderColor: "black",
                 fontWeight: 500,
                 "&:hover": {
@@ -103,6 +104,7 @@ const ProductFilter = () => {
               endIcon={<TuneIcon />}
               sx={{
                 color: "black",
+                backgroundColor: "white",
                 borderColor: "black",
                 fontWeight: 500,
                 "&:hover": {

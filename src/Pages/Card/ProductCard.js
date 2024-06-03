@@ -135,7 +135,7 @@ const ProductCard = () => {
       {/* <Grid>
         <ProductFilter />
       </Grid> */}
-      <Box sx={{mb: 10, display: "flex", flexWrap: "wrap", columnGap: 2 }}>
+      <Box sx={{mt: 2.5, mb: 10, display: "flex", flexWrap: "wrap", columnGap: 2 }}>
         {Data.map((items) => (
           <Card
             sx={{ width: { xs: "100%", sm: 264 }, mb: 2, display: "flex" }}

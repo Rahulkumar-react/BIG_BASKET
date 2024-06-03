@@ -21,7 +21,6 @@ export const NavbarContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  z-index: 1;
   width: 100%;
   padding: 0 24px;
   max-width: 1200px;
@@ -115,7 +114,7 @@ export const Texticon = styled.p`
   align-items: center;
   text-decoration: none;
   margin-top: 0px; /* Set margin-top */
-  padding: 8px; /
+  padding: 8px;
   cursor: pointer;
 `;
 export const Logaionbutton = styled.div`
@@ -123,6 +122,7 @@ export const Logaionbutton = styled.div`
   border-radius: 5px;
   width: 13%;
   height: 7vh;
+  cursor: pointer;
 `;
 export const Loginbutton = styled.p`
   color:white; /* Set text color */
@@ -151,7 +151,7 @@ export const NavLink = styled.a`
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   :hover {
-    color: ${({ theme }) => theme.primary};
+    background-color: red;
   }
 
   &.active {
@@ -164,6 +164,7 @@ export const NavButton = styled.button`
   border-radius: 5px;
   border: none;
   color: white;
+  cursor: pointer;
 `;
 export const Loginimage = styled.div`
   //   background-color: '#eeeeee';
@@ -179,6 +180,7 @@ export const Boximage = styled.div`
   width: 49%;
   height:4vh;
   display: flex;
+  cursor: pointer;
 `;
 export const FilterNav = styled.div`
   text-align: start;

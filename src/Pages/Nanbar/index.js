@@ -51,7 +51,7 @@ const Navbar = () => {
             />
           </MobileIcon>
           <NavLogo>
-            <Img src={Logo} style={{ width: "65%" }} alt="hero-image" />
+            <Img src={Logo} style={{ width: "100%" }} alt="hero-image" />
           </NavLogo>
           <NavItems>
             <SearchContainer>
@@ -81,6 +81,7 @@ const Navbar = () => {
                   color: "white",
                   padding: "4px 5px 5px 5px ",
                   borderRadius: "50%",
+                  cursor: 'pointer',
                 }}
               />
             </Deleteicon>
