@@ -75,15 +75,24 @@ const SideBar = () => {
 
   const drawer = (
     <div>
-      <Toolbar />
+      {/* <Toolbar /> */}
+
       <Divider />
-      <List>
+      <List sx={{ backgroundColor: "#f7f7f7" }}>
         {NavConfig.map((text, index) => (
           <div key={text.name}>
             <ListItem disablePadding>
               <ListItemButton
                 onClick={() => handleNav(text.path, index)}
-                sx={{ padding: "0px" }}
+                sx={{
+                  padding: "0px",
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                  },
+                  "&:active": {
+                    backgroundColor: "transparent",
+                  },
+                }}
               >
                 <ListItemText
                   sx={{
@@ -110,22 +119,32 @@ const SideBar = () => {
                 </ListItemText>
               </ListItemButton>
             </ListItem>
-            {text.subItems.map((subItem, subIndex) => (
-              // <ListItem key={subItem.name} sx={{ pl: 4 }}>
-              <ListItemButton onClick={() => navigate(subItem.path)}>
-                <input
-                  style={{
-                    height: "20px",
-                    width: "20px",
-                    margin: "8px",
-                    border: " 3px solid #c4c4c4",
+
+            {index === openSubMenu ||
+              
+              text.subItems.map((subItem, subIndex) => (
+                // <ListItem key={subItem.name} sx={{ pl: 4 }}>
+                <ListItemButton
+                  sx={{
+                    "&:hover": {
+                      backgroundColor: "#f7f7f7",
+                    },
                   }}
-                  type="checkbox"
-                />
-                <ListItemText primary={subItem.name} />
-              </ListItemButton>
-              // </ListItem>
-            ))}
+                  onClick={() => navigate(subItem.path)}
+                >
+                  <input
+                    style={{
+                      height: "20px",
+                      width: "20px",
+                      margin: "8px",
+                      border: " 3px solid #c4c4c4",
+                    }}
+                    type="checkbox"
+                  />
+                  <ListItemText primary={subItem.name} />
+                </ListItemButton>
+                // </ListItem>
+              ))}
           </div>
         ))}
       </List>
@@ -149,11 +168,6 @@ const SideBar = () => {
         >
           <Navbar />
         </AppBar>
-        {/* <Box
-          component="nav"
-          sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-          aria-label="mailbox folders"
-        > */}
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -166,7 +180,6 @@ const SideBar = () => {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
-              // background: "#f7f7f7",
               color: "black",
               marginTop: "100px",
               borderRadius: "3px",
@@ -179,16 +192,33 @@ const SideBar = () => {
         <Drawer
           variant="permanent"
           sx={{
+            paddingTop: "25px",
             "& .MuiDrawer-paper": {
-              height: "auto",
+              overflow: "auto",
+              height: "calc(100vh - 135px)",
               boxSizing: "border-box",
               width: drawerWidth,
               border: "1px solid #eeeeee",
               color: "black",
               borderRadius: "3px",
               position: "sticky",
-              top: "135px",
-              overflowY: "auto",
+              top: "140px",
+              zIndex: 1,
+              "&::-webkit-scrollbar-thumb:hover": {
+                background: "#ccc",
+                borderRadius: "3px",
+              },
+              "&::-webkit-scrollbar-track": {
+                background: "#f1f1f1",
+              },
+              "&::-webkit-scrollbar-thumb": {
+                background: "#888",
+                borderRadius: "3px",
+              },
+              "&::-webkit-scrollbar": {
+                width: "6px",
+                borderRadius: "3px",
+              },
             },
           }}
           open
@@ -203,7 +233,6 @@ const SideBar = () => {
             flexGrow: 1,
             p: 3,
             width: { sm: `calc(100% - ${drawerWidth}px)` },
-            // marginLeft: "280px",
           }}
         >
           {/* <Toolbar /> */}
