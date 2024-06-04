@@ -128,7 +128,7 @@ export const Footer = () => {
                 alt="Bigbasket Logo"
                 style={{ width: "156px", height: "56px", marginBottom: "20px" }}
               />
-              <Box sx={{ marginBottom: "24px" }}>
+              {/* <Box sx={{ marginBottom: "24px" }}>
                 <ButtonsContainer>
                   <GooglePlayButton
                     // url={APKUrl}
@@ -141,7 +141,7 @@ export const Footer = () => {
                     style={{ borderColor: "#DDDDDD" }}
                   />
                 </ButtonsContainer>
-              </Box>
+              </Box> */}
               <Grid container sx={{ gap: "15px", marginBottom: "24px" }}>
                 {socialIcons.map((social, index) => (
                   <SocialIcon href="#" key={index}>

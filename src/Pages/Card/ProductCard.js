@@ -33,6 +33,7 @@ import TurnedInNotIcon from "@mui/icons-material/TurnedInNot";
 import CancelIcon from "@mui/icons-material/Cancel";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import ProductFilter from "../../Components/ProductFilter";
+import { useNavigate } from "react-router-dom";
 
 
 const Data = [
@@ -118,10 +119,10 @@ const Data = [
   },
 ];
 
-const ProductCard = () => {
+const ProductCard = ({url }) => {
   const [kilogram, setKilogram] = React.useState("");
   const [showOffer, setShowOffer] = React.useState(false);
-
+ const navicate= useNavigate();
   const handleChange = (event) => {
     setKilogram(event.target.value);
   };
@@ -129,7 +130,10 @@ const ProductCard = () => {
   const handleOfferClick = () => {
     setShowOffer(!showOffer);
   };
-
+  const handleClick = () => {
+    const url = '/ProductDetails'; // Define the URL
+    window.open(url, '_blank'); // Open the URL in a new tab
+  };
   return (
     <>
       {/* <Grid>
@@ -153,7 +157,7 @@ const ProductCard = () => {
                       borderRadius: "8px",
                     }}
                   >
-                    <ImageBody>
+                    <ImageBody onClick={handleClick}>
                       <Image src={items.ProductIamge} alt="Tender Coconut" />
                     </ImageBody>
                     <Discounts
