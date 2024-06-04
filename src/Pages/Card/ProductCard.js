@@ -138,7 +138,7 @@ const ProductCard = () => {
       <Box sx={{mt: 2.5, mb: 10, display: "flex", flexWrap: "wrap", columnGap: 2 }}>
         {Data.map((items) => (
           <Card
-            sx={{ width: { xs: "100%", sm: 264 }, mb: 2, display: "flex" }}
+            sx={{ width: { xs: "100%", sm: 264 }, mb: 2, display: "flex",boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
             key={items.ProductId}
           >
             <CardContent>
