@@ -144,13 +144,11 @@ export const Deleteicon = styled.div`
   padding: 8px 8px 4px 8px;
 `;
 export const NavLink = styled.a`
-  // color: ${({ theme }) => theme.text_primary};
   color:black;
-  //   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
-  :hover {
+  &:hover : {
     background-color: red;
   }
 

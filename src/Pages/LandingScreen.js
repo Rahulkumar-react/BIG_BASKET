@@ -3,6 +3,7 @@ import Navbar from "./Nanbar/index";
 import Sidebar from "../Components/Sidebar";
 import { Container, Grid } from "@mui/material";
 import ProductFilter from "../Components/ProductFilter";
+import { Footer } from "../Components/Footer";
 // import Sidebar from '../Components/Sidebar';
 // import Sidebar from '../Components/Sidebar';
 
@@ -15,6 +16,7 @@ const LandingScreen = () => {
         </Grid>
         <Sidebar />
       </Container>
+      <Footer />
     </div>
   );
 };

@@ -18,12 +18,16 @@ import {
   Button,
   Popover,
   Container,
+  Rating,
+  Grid,
+  Switch,
 } from "@mui/material";
 import { Outlet, useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { NavConfig } from "./NavConfig";
 import Navbar from "../Pages/Nanbar";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 // import styled from "@emotion/styled";
 
 // const StyledCheckboxInput = styled.input.attrs({ type: 'checkbox' })`
@@ -40,6 +44,11 @@ const SideBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [popName, setPopName] = useState([]);
   // const cookies = useMemo(() => new Cookies(), []);
+  const [checked, setChecked] = React.useState(false);
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
   const navigate = useNavigate();
 
   // useEffect(() => {
@@ -72,12 +81,100 @@ const SideBar = () => {
 
   const open = Boolean(anchorEl);
   const id = open ? "avatar-popover" : undefined;
+  const RatingComponent = ({ rating }) => {
+    const [value, setValue] = useState(rating.value);
 
+    return (
+      <Rating
+        sx={{ fontSize: "18px", color: "green" }}
+        name={rating.name}
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+      />
+    );
+  };
   const drawer = (
-    <div>
+    <div style={{ backgroundColor: "#f7f7f7" }}>
+      <Typography sx={{ fontSize: "16px", fontWeight: 600, paddingY: 2.5 }}>
+        Shop by Category
+      </Typography>
+      <Grid sx={{ display: "flex", paddingLeft: 0.7 }}>
+        <KeyboardArrowLeftIcon />
+        <Typography sx={{ fontSize: "14px", pt: 0.2, paddingLeft: 1 }}>
+          Fruits & Vegetables
+        </Typography>
+      </Grid>
+      <Box
+        sx={{
+          mt: 2,
+          mb: 2.5,
+          backgroundColor: "#ffffff",
+          paddingY: 1.5,
+          paddingLeft: 0.7,
+          boxShadow: "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
+        }}
+      >
+        <Typography
+          sx={{ fontWeight: 600, fontSize: "15px", color: "#76b900", paddingLeft: 1, mb: 0.5 }}
+        >
+          Exotic Fruits & Veggies
+        </Typography>
+        <Grid sx={{ paddingLeft: 1 }}>
+          <Typography
+            sx={{
+              fontSize: "13px",
+              borderLeft: "1px solid #c4c4c4",
+              paddingY: 1,
+              paddingLeft: 1,
+            }}
+          >
+            Exotic Fruits
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: "13px",
+              borderLeft: "1px solid #c4c4c4",
+              paddingY: 1,
+              paddingLeft: 1,
+            }}
+          >
+            Exotic Vegetables
+          </Typography>
+        </Grid>
+      </Box>
+      <Grid
+        sx={{
+          display: "flex",
+          justifyContent: "space-around",
+          backgroundColor: "#ffffff",
+          mb: 2,
+          paddingY: 1,
+        }}
+      >
+        <Typography
+          sx={{
+            fontSize: "16px",
+            fontWeight: 700,
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          Super<span style={{ color: "red" }}>Saver</span>
+        </Typography>
+        <Switch
+          checked={checked}
+          onChange={handleChange}
+          inputProps={{ "aria-label": "controlled" }}
+          size="small"
+        />
+      </Grid>
+      <Typography sx={{ fontSize: "16px", fontWeight: 700 }}>
+        Refined by
+      </Typography>
       {/* <Toolbar /> */}
-
-      <Divider />
+      {/* <Divider /> */}
       <List sx={{ backgroundColor: "#f7f7f7" }}>
         {NavConfig.map((text, index) => (
           <div key={text.name}>
@@ -96,12 +193,11 @@ const SideBar = () => {
               >
                 <ListItemText
                   sx={{
-                    height: "46px",
+                    height: "42px",
                     width: "100%",
-                    paddingTop: "10px",
                     borderRadius: "4px",
                     backgroundColor: "#eeeeee",
-                    padding: 1,
+                    padding: "10px 8px 8px 8px",
                   }}
                 >
                   {text.name}
@@ -121,7 +217,6 @@ const SideBar = () => {
             </ListItem>
 
             {index === openSubMenu ||
-              
               text.subItems.map((subItem, subIndex) => (
                 // <ListItem key={subItem.name} sx={{ pl: 4 }}>
                 <ListItemButton
@@ -141,7 +236,12 @@ const SideBar = () => {
                     }}
                     type="checkbox"
                   />
-                  <ListItemText primary={subItem.name} />
+
+                  {subItem.rating ? (
+                    <RatingComponent rating={subItem.rating} />
+                  ) : (
+                    <ListItemText primary={subItem.name} />
+                  )}
                 </ListItemButton>
                 // </ListItem>
               ))}

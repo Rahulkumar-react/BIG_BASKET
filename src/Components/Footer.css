@@ -1,0 +1,93 @@
+/* body{
+    background-color: black;
+    font-size: 14;
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+} */
+#title {
+    font-family: ProximaNova, Helvetica, Arial, sans-serif;
+}
+
+.alink {
+    color: #DDDDDD;
+    font-size: 14px;
+    font-family: ProximaNova, Helvetica, Arial, sans-serif;
+    margin-top: 12px;
+    text-decoration: none;
+}
+
+.alink:hover {
+    text-decoration: underline;
+}
+.custom-style span {
+    font-size: 10px !important;
+}
+
+.custom-style span.button-title {
+    font-family: ProximaNova, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 6px !important;
+}
+
+.custom-style span.button-store-name {
+    font-family: ProximaNova, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 8px !important;
+}
+
+.buttons-container {
+    gap: 9px;
+}
+
+.custom-style {
+    border-color: #DDDDDD !important;
+}
+img {
+    height: 20px;
+}
+.custom-style:hover {
+    border-color: #010101 !important;
+    color: black !important;
+}
+
+.custom-style:hover {
+    background-color: white;
+}
+
+.icon-custom:hover img {
+    filter: invert(1);
+}
+/* logo */
+.fullLogo {
+    width: 156px;
+    height: 56px;
+    margin-bottom: 20px;
+}
+/* mobile view  disply style app buuton */
+.custom-style2 {
+    background-color: white;
+    border-color: white;
+
+}
+.custom-style2 span {
+    font-size: 10px !important;
+}
+
+.custom-style2 span.button-title {
+    font-family: ProximaNova, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 6px !important;
+}
+
+.custom-style2 span.button-store-name {
+    font-family: ProximaNova, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 8px !important;
+}
+
+.buttons-container {
+    gap: 9px;
+    justify-content: center;
+    border:'none';
+}
+

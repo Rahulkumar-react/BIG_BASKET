@@ -76,7 +76,7 @@ const Navbar = () => {
               /> */}
               <ShoppingBasketIcon
                 sx={{
-                  fontSize: "20px",
+                  fontSize: "28px",
                   backgroundColor: "red",
                   color: "white",
                   padding: "4px 5px 5px 5px ",

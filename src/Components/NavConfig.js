@@ -18,10 +18,18 @@ export const NavConfig = [
       {
         name: "Users",
         path: "/overview/users",
+        rating: {
+          name: "simple-controlled-users",
+          value: 3, // initial value for rating
+        },
       },
       {
         name: "Revenue",
         path: "/overview/revenue",
+        rating: {
+          name: "simple-controlled-users",
+          value: 4, // initial value for rating
+        },
       },
     ],
   },

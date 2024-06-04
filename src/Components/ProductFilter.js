@@ -82,9 +82,10 @@ const ProductFilter = () => {
               startIcon={icon ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
               onClick={handlecontent}
               sx={{
+                paddingY: 0.9,
                 color: "black",
                 backgroundColor: "white",
-                borderColor: "black",
+                borderColor: "#b3b3b3",
                 fontWeight: 500,
                 "&:hover": {
                   backgroundColor: "black",
@@ -103,9 +104,10 @@ const ProductFilter = () => {
               variant="outlined"
               endIcon={<TuneIcon />}
               sx={{
+                paddingY: 0.9,
                 color: "black",
                 backgroundColor: "white",
-                borderColor: "black",
+                borderColor: "#b3b3b3",
                 fontWeight: 500,
                 "&:hover": {
                   backgroundColor: "black",
