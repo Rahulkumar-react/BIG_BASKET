@@ -16,14 +16,6 @@ export const NavConfig = [
     Icon: <KeyboardArrowDownIcon />,
     subItems: [
       {
-        name: "Users",
-        path: "/overview/users",
-        rating: {
-          name: "simple-controlled-users",
-          value: 3, // initial value for rating
-        },
-      },
-      {
         name: "Revenue",
         path: "/overview/revenue",
         rating: {
