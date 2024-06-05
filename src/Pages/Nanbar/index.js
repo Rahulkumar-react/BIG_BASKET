@@ -25,22 +25,52 @@ import {
   NavbarContainer,
   SearchContainer,
   Texticon,
-  Grid
+  Grid,
 } from "./NavbarStyleComponents";
 import Sidebar from "../../Components/Sidebar";
-import { Container} from "@mui/material";
-import ProductFilter from '../../Components/ProductFilter';
+import {
+  Container,
+  IconButton,
+  Menu,
+  MenuItem,
+  Typography,
+} from "@mui/material";
+import ProductFilter from "../../Components/ProductFilter";
 import Signin from "./Signin";
+import { Box } from "@mui/system";
+
+const pages = [
+  "Milk",
+  "Yogurt & Shrikhand",
+  "Chocolates",
+  "Cup Noodles",
+  "Hair Care",
+  "Fresh Chicken",
+  "Eggs",
+  "Honey",
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
   return (
-    <>
-    <Signin open={open} onClose={handleClose} />
+    <Box>
+      <Signin
+        open={open}
+        onClose={handleClose}
+      />
       <Nav>
         <NavbarContainer>
           <MobileIcon>
@@ -81,7 +111,7 @@ const Navbar = () => {
                   color: "white",
                   padding: "4px 5px 5px 5px ",
                   borderRadius: "50%",
-                  cursor: 'pointer',
+                  cursor: "pointer",
                 }}
               />
             </Deleteicon>
@@ -104,7 +134,7 @@ const Navbar = () => {
             </NavButton>
           </NavLogo>
           <NavItems>
-            <NavLink >Exotic Fruits & Vegg</NavLink>
+            <NavLink>Exotic Fruits & Vegg</NavLink>
             {/* <NavLink /> */}
             <NavLink>Tea</NavLink>
             {/* <NavLink /> */}
@@ -112,9 +142,56 @@ const Navbar = () => {
             {/* <NavLink /> */}
             <NavLink>Nandini</NavLink>
             <NavLink>Fresh Vegetables</NavLink>
-            <NavLink>
-              <KeyboardDoubleArrowRightIcon />
-            </NavLink>
+            <Grid>
+              <IconButton
+              sx={{color: 'black'}}
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <KeyboardDoubleArrowRightIcon />
+              </IconButton>
+              <Menu
+                anchorEl={anchorElNav}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+              >
+                {pages.map((page) => (
+                  <MenuItem
+                    sx={{
+                      "&:hover": {
+                        backgroundColor: "transparent",
+                      },
+                    }}
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                  >
+                    <Typography
+                      sx={{
+                        marginY: 1,
+                        paddingRight: 5,
+                        "&:hover": {
+                          backgroundColor: "transparent",
+                        },
+                      }}
+                    >
+                      {page}
+                    </Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Grid>
           </NavItems>
           <Loginimage>
             <Boximage>
@@ -134,7 +211,7 @@ const Navbar = () => {
 
       {/* </NavbarContainer> */}
       {/* </Container > */}
-    </>
+    </Box>
   );
 };
 

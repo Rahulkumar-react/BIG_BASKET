@@ -3,6 +3,7 @@ import { useRoutes } from "react-router-dom";
 import LandingScreen from "./Pages/LandingScreen";
 import ProductCard from "./Pages/Card/ProductCard";
 import ProductDetails from "./Components/ProductDetails";
+import ViewProductDetails from "./Pages/ViewProductDetails";
 
 const Router = () => {
   return useRoutes([
@@ -14,7 +15,7 @@ const Router = () => {
         { path: "CreateEmployee", element: <ProductCard /> },
       ],
     },
-    { path: "/ProductDetails", element: <ProductDetails /> },
+    { path: "/ProductDetails", element: <ViewProductDetails /> },
   ]);
 };
 

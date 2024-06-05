@@ -143,13 +143,43 @@ export const Deleteicon = styled.div`
   // height: 6vh;
   padding: 8px 8px 4px 8px;
 `;
+// export const NavLink = styled.a`
+//   color:black;
+//   cursor: pointer;
+//   transition: all 0.2s ease-in-out;
+//   text-decoration: none;
+//   &:hover : {
+//     background-color: red;
+//   }
+
+//   &.active {
+//     border-bottom: 2px solid ${({ theme }) => theme.primary};
+//   }
+// `;
 export const NavLink = styled.a`
-  color:black;
+  color: black;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
   text-decoration: none;
-  &:hover : {
-    background-color: red;
+  position: relative;
+  display: inline-block;
+  padding: 0 0.5em;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(0deg, #F4885A 0%, #FFFFFF9E 69%);
+    z-index: -1;
+    transition: transform 1s ease-in-out;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
   }
 
   &.active {
