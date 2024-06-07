@@ -69,7 +69,7 @@ export const NavConfig = [
     subItems: [
       {
         name: "CreateEmployee",
-        path: "/CreateEmployee",
+        path: "/dashboradd/CreateEmployee",
       },
       {
         name: "View Customer",
