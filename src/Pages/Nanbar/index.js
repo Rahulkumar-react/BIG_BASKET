@@ -38,6 +38,7 @@ import {
 import ProductFilter from "../../Components/ProductFilter";
 import Signin from "./Signin";
 import { Box } from "@mui/system";
+import { useNavigate } from "react-router-dom";
 
 const pages = [
   "Milk",
@@ -51,11 +52,15 @@ const pages = [
 ];
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = React.useState(false);
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const handleOpen = () => {
+    navigate('/dashboradd')
+    // setOpen(true);
+  };
+  const handleClose = () => setOpen(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -65,12 +70,12 @@ const Navbar = () => {
     setAnchorElNav(null);
   };
 
+  const handleAddproduct = () => {
+    navigate("/Addproduct");
+  };
   return (
     <Box>
-      <Signin
-        open={open}
-        onClose={handleClose}
-      />
+      <Signin open={open} onClose={handleClose} />
       <Nav>
         <NavbarContainer>
           <MobileIcon>
@@ -113,6 +118,7 @@ const Navbar = () => {
                   borderRadius: "50%",
                   cursor: "pointer",
                 }}
+                onClick={handleAddproduct}
               />
             </Deleteicon>
           </NavItems>
@@ -144,7 +150,7 @@ const Navbar = () => {
             <NavLink>Fresh Vegetables</NavLink>
             <Grid>
               <IconButton
-              sx={{color: 'black'}}
+                sx={{ color: "black" }}
                 size="large"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"

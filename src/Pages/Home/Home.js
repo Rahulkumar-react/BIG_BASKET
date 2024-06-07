@@ -115,8 +115,9 @@ const Home = () => {
     </div>
     <AdsCard Images={daBeautyAndHygieneta} heading={'Beauty and Hygiene'}/>
     <AdsCard Images={HomeAndKitchen} heading={'Home and Kitchen'}/>
+    <br/> 
     </>
-    
+  
     
   );
 };
