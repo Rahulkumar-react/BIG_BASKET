@@ -29,6 +29,7 @@ import ProductCard from "../Card/ProductCard";
 import OfferCard from "../Card/OfferCard";
 import Navbar from "../Nanbar";
 import AdsCard from "../Card/AdsCard";
+import SlideBar from "../../Components/SlideBar/SlideBar";
 
 const ProductList = () => {
   const cards = [
@@ -97,6 +98,7 @@ const Home = () => {
   return (
     <>
     <div style={{ marginTop: "150PX" }}>
+      <SlideBar />
       <ProductList />
       <Typography variant="h6" sx={{ textAlign: "start" ,fontWeight:'bold'}}>
         {"Bank Offers"}
