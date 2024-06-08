@@ -5,6 +5,7 @@ import {
   Container,
   Grid,
   Link,
+  Menu,
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
@@ -13,6 +14,16 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import HomeIcon from "@mui/icons-material/Home";
 import TuneIcon from "@mui/icons-material/Tune";
+import MenuItem from '@mui/material/MenuItem';
+
+
+const FilterRelevance = ['Relevance',
+'Price - Low to High',
+'Price - High to Low',
+'Rupee Saving - High to Low',
+'Rupee Saving - Low to High',
+'% Off - High to Low']
+
 const FilterNav = styled.div`
   text-align: start;
 `;
@@ -28,11 +39,23 @@ const FilterButton = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+
+
 const ProductFilter = () => {
   const [icon, setIcon] = useState(true);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
   const handlecontent = () => {
     setIcon(!icon);
   };
+
+  const handleOpenUserMenu = (event) =>  {
+    setAnchorElUser(event.currentTarget);
+  }
+  
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  }
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -99,8 +122,10 @@ const ProductFilter = () => {
               {icon ? "Hide Filter" : "Show Filter"}
             </Button>
           </Grid>
+
+
           <Grid>
-            <Button
+            <Button onClick={handleOpenUserMenu}
               variant="outlined"
               endIcon={<TuneIcon />}
               sx={{
@@ -120,7 +145,31 @@ const ProductFilter = () => {
             >
               Relevance
             </Button>
+            <Menu
+            sx={{ mt: '56px', fontSize: '14px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {FilterRelevance.map((Relevance) => (
+                <MenuItem key={Relevance} onClick={handleCloseUserMenu} >
+                  <Typography sx={{ fontSize: '14px', borderTopWidth: '1px'}}  textAlign="center">{Relevance}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
           </Grid>
+
+
         </FilterButton>
       </FilterNav>
       <hr
