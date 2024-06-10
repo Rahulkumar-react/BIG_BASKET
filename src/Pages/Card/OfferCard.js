@@ -1,36 +1,33 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React from 'react'
-import card6 from "../Assets/Card1.png";
-import card4 from "../Assets/card2.png";
-import card2 from "../Assets/card3.png";
 import { SectionHeading } from './AdsCard';
 
-const OfferCard = () => {
-const cards =[
-    { imag: card2 },
-    { imag: card6 },
-    { imag: card4 },
-    { imag: card6 },
-]
+
+const OfferCard = ({Images, heading}) => {
+
       return (
         <Grid >
-          <SectionHeading></SectionHeading>
-          <Grid container spacing={2} sx={{ paddingY: 5 }}>
-            {cards.map((cardValue, index) => (
+          <SectionHeading>{heading}</SectionHeading>
+          <Grid container spacing={2} marginBottom={2}>
+            {Images.map((cardValue, index) => (
               <Grid item sm={12} md={6} lg={3}>
                 <Box
                   sx={{
                     height: "200px",
                     width: "100%",
                     alignItems: "center",
-                    borderRadius: "10px",
+                    borderRadius: '10px',
+                    boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px",
+                    '&:hover': {
+                        boxShadow: "rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px"
+                    }
                   }}
                 >
                   <img
-                    component="img"
+                    component="image"
                     key={index}
-                    style={{ width: "100%", height: "100%" }}
-                    src={cardValue.imag}
+                    style={{ width: "100%", height: "100%" ,borderRadius:'10px'}}
+                    src={cardValue.image}
                   />
                 </Box>
               </Grid>
