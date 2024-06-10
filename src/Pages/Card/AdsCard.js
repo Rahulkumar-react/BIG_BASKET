@@ -2,7 +2,7 @@ import { Box, Grid } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
 
-const SectionHeading = styled.p`
+export const SectionHeading = styled.p`
   font-size: 24px;
   font-weight: 700;
   text-align: start;

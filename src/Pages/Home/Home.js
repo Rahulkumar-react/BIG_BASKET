@@ -17,6 +17,14 @@ import Image4 from '../Assets/Image4.png';
 import Image5 from '../Assets/Image5.png';
 import Image6 from '../Assets/Image6.png';
 
+import SlideShow1 from '../../Pages/Assets/slideshow1.webp';
+import SlideShow2 from '../../Pages/Assets/slideshow2.webp';
+import SlideShow3 from '../../Pages/Assets/slideshow3.webp';
+import SlideShow4 from '../../Pages/Assets/slideshow4.webp';
+
+import SlideShowTop1 from '../../Pages/Assets/slideshowTop1.webp';
+import SlideShowTop2 from '../../Pages/Assets/slideshowTop2.webp';
+
 import makeup from "../Assets/makeup.png";
 import moisturiser from "../Assets/moisturiser.png";
 import perfumes from "../Assets/perfumes.png";
@@ -94,11 +102,23 @@ const Home = () => {
     {items: Image6},
   ]
 
+  const SlideShow = [
+    {img: SlideShow1},
+    {img: SlideShow2},
+    {img: SlideShow3},
+    {img: SlideShow4},
+
+  ]
+
+  const SlideShowTop = [
+    {img: SlideShowTop1},
+    {img: SlideShowTop2},
+  ]
   
   return (
     <>
     <div style={{ marginTop: "150PX" }}>
-      <SlideBar />
+      <SlideBar  Images={SlideShowTop} />
       <ProductList />
       <Typography variant="h6" sx={{ textAlign: "start" ,fontWeight:'bold'}}>
         {"Bank Offers"}
@@ -117,6 +137,8 @@ const Home = () => {
     </div>
     <AdsCard Images={daBeautyAndHygieneta} heading={'Beauty and Hygiene'}/>
     <AdsCard Images={HomeAndKitchen} heading={'Home and Kitchen'}/>
+    <SlideBar  Images={SlideShow} />
+
     <br/> 
     </>
   
