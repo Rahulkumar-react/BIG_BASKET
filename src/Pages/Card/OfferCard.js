@@ -3,6 +3,7 @@ import React from 'react'
 import card6 from "../Assets/Card1.png";
 import card4 from "../Assets/card2.png";
 import card2 from "../Assets/card3.png";
+import { SectionHeading } from './AdsCard';
 
 const OfferCard = () => {
 const cards =[
@@ -13,6 +14,7 @@ const cards =[
 ]
       return (
         <Grid >
+          <SectionHeading></SectionHeading>
           <Grid container spacing={2} sx={{ paddingY: 5 }}>
             {cards.map((cardValue, index) => (
               <Grid item sm={12} md={6} lg={3}>
