@@ -26,12 +26,11 @@ const SimpleSlider = ({ Images }) => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-    nextArrow: <NextArrow />,
+       nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     appendDots: dots => (
       <Box sx={{
-        textAlign: "center", marginBottom: '40px', display: 'flex',
-        justifyContent: 'center',
+        textAlign: "center", display: 'flex',justifyContent: 'center',
       }}   >
         <ul style={
           {
@@ -57,6 +56,7 @@ const SimpleSlider = ({ Images }) => {
           margin: '0 5px',
           cursor: 'pointer',
           transition: 'background-color  0.6s ease',
+          
         }}
       />
     ),
@@ -67,9 +67,9 @@ const SimpleSlider = ({ Images }) => {
     <Container >
       <Slider {...settings}>
         {Images.map((image, index) => (
-          <div key={index} style={{ position: 'relative', zIndex: 1, }}>
+          <div key={index} style={{ position: 'relative', zIndex: 1,marginTop:'20px', }}>
             <img
-              style={{ width: '100%', height: '280px', borderRadius: '50px', marginTop: '30px', marginBottom: '0px' }}
+              style={{ width: '100%', height: '280px', borderRadius: '50px', marginTop: '20px', marginBottom: '0px' }}
               src={image.img}
             />
           </div>
