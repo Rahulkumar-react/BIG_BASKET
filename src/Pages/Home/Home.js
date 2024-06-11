@@ -207,8 +207,6 @@ const Home = () => {
     { items: Image6 },
   ];
 
-
-
   return (
     <>
       <div style={{ marginTop: "150PX" }}>
