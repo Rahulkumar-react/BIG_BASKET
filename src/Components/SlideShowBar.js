@@ -7,7 +7,7 @@ import { Button, Box, Container } from '@mui/material';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 
-const SimpleSlider = ({ Images }) => {
+const SlideShowBar = ({ Images }) => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const SimpleSlider = ({ Images }) => {
     }, 2000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [Images.length]);
 
   const settings = {
     dots: true,
@@ -26,55 +26,53 @@ const SimpleSlider = ({ Images }) => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-       nextArrow: <NextArrow />,
+    nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     appendDots: dots => (
-      <Box sx={{
-        textAlign: "center", display: 'flex',justifyContent: 'center',
-      }}   >
-        <ul style={
-          {
-            margin: '0',
-            padding: '0',
-            listStyle: 'none',
-            borderRadius: ' 10px',
-            width: '15%',
-            backgroundColor: '#00000080',
-          }
-        }>{dots}</ul>
+      <Box sx={{ textAlign: 'center', display: 'flex', justifyContent: 'center', }}>
+        <ul style={{
+          margin: '0',
+          padding: '0',
+          listStyle: 'none',
+          borderRadius: '10px',
+          width: '15%',
+          backgroundColor: '#00000080',
+          marginBottom: '40px'
+        }}>{dots}</ul>
       </Box>
     ),
     customPaging: i => (
       <Box
         component="span"
         sx={{
-          width: '12px',
-          height: '12px',
-          bgcolor: i === slideIndex ? '#fff' : '#bbb' , // Set active dot color to black
+          width: i === slideIndex ? '15px' : '11px',
+          height: i === slideIndex ? '15px' : '11px',
+          bgcolor: i === slideIndex ? '#fff' : '#bbb',
           borderRadius: '50%',
           display: 'inline-block',
           margin: '0 5px',
           cursor: 'pointer',
-          transition: 'background-color  0.6s ease',
-          
+          textAlign: 'center',
+          transition: 'width 0.6s ease, height 0.6s ease, bgcolor 0.6s ease',
         }}
       />
     ),
-    beforeChange: (current, next) => setSlideIndex(next), // Update slideIndex on slide change
+    beforeChange: (current, next) => setSlideIndex(next),
   };
 
   return (
-    <Container >
-      <Slider {...settings}>
-        {Images.map((image, index) => (
-          <div key={index} style={{ position: 'relative', zIndex: 1,marginTop:'20px', }}>
-            <img
-              style={{ width: '100%', height: '280px', borderRadius: '50px', marginTop: '20px', marginBottom: '0px' }}
-              src={image.img}
-            />
-          </div>
-        ))}
-      </Slider>
+    <Container>
+    <Slider {...settings}>
+      {Images.map((image, index) => (
+        <div key={index} style={{ position: 'relative', zIndex: 1, marginTop: '20px', overflow: 'hidden', borderRadius: '25px' }}>
+          <img
+            style={{ width: '100%', height: '280px', borderRadius: '25px', marginTop: '20px'}}
+            src={image.img}
+            alt={`Slide ${index}`}
+          />
+        </div>
+      ))}
+    </Slider>
     </Container>
   );
 };
@@ -134,4 +132,4 @@ const PrevArrow = ({ onClick }) => (
   </Button>
 );
 
-export default SimpleSlider;
+export default SlideShowBar;
