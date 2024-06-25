@@ -77,7 +77,9 @@ import ProductCard from "../Card/ProductCard";
 import OfferCard from "../Card/OfferCard";
 import Navbar from "../Nanbar";
 import AdsCard from "../Card/AdsCard";
-import SlideBar from "../../Components/SlideBar/SlideBar";
+import SlideShowBar from "../../Components/SlideShowBar";
+import AddPaymentMthods from "../../Components/AddPaymentMthods";
+import PaymentNavBar from "../../Components/PaymentNavBar";
 
 const ProductList = () => {
   const cards = [
@@ -210,9 +212,7 @@ const Home = () => {
   return (
     <>
       <div style={{ marginTop: "150PX" }}>
-        <div style={{ marginTop: '40px' }}>
-          <SlideBar Images={SlideShowTop} />
-        </div>
+          <SlideShowBar  Images={SlideShowTop}/>
         <ProductList />
         <OfferCard Images={BankOffers} heading={'Bank Offers'} />
         <Box sx={{ backgroundColor: "#f7f7f7" }}>
@@ -230,11 +230,9 @@ const Home = () => {
       <OfferCard Images={CleaningHousehold} heading={'Cleaning & Household'} />
       <AdsCard Images={daBeautyAndHygieneta} heading={'Beauty and Hygiene'} />
       <AdsCard Images={HomeAndKitchen} heading={'Home and Kitchen'} />
-
       <br />
       <div style={{ marginTop: '20px', marginBottom: '20px' }}>
-        <SlideBar Images={SlideShow} />
-
+        <SlideShowBar Images={SlideShow}/>
       </div>
       <br />
     </>

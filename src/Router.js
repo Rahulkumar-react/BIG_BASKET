@@ -6,6 +6,8 @@ import ProductDetails from "./Components/ProductDetails";
 import ViewProductDetails from "./Pages/ViewProductDetails";
 import Addproduct from "./Pages/Addproduct.js/Addproduct";
 import DashboardLayout from "./Pages/DashboardLayout";
+import AddPaymentMthods from './Components/AddPaymentMthods';
+import PaymentNavBar from "./Components/PaymentNavBar";
 
 const Router = () => {
   return useRoutes([
@@ -23,6 +25,7 @@ const Router = () => {
     },
     { path: "/ProductDetails", element: <ViewProductDetails /> },
     { path: "/Addproduct", element: <Addproduct /> },
+    { path: "/AddPaymentMethods", element: <AddPaymentMthods /> },
   ]);
 };
 

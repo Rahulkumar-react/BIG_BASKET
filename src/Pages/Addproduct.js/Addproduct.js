@@ -6,9 +6,10 @@ import Navbar from "../Nanbar";
 import items1 from '../../Pages/Assets/broccoli2.png';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
-import { height } from "@mui/system";
+import { useNavigate } from "react-router-dom";
 
 const Addproduct = () => {
+const navigate= useNavigate();
   return (
     <>
       <Box sx={{ padding: "10px 0px 0px 0px" }}>
@@ -45,6 +46,7 @@ const Addproduct = () => {
                     boxShadow: "none", // Remove the shadow effect on hover
                   },
                 }}
+                onClick={navigate('/AddPaymentMethods')}
               >
                 {"Checkout"}
               </Button>
@@ -151,8 +153,8 @@ const Addproduct = () => {
           </Box>
         </Box>
         <br />
-        <Footer />
       </Container>
+      <Footer />
     </>
   );
 };
