@@ -20,12 +20,9 @@ export const Discounts = styled.p`
   display: inline-block;
   font-size: 11px;
   font-weight: 500;
-  background-color: #476f00;
-  color: #ffffff;
   padding: 7px 17px;
-  border-radius: 8px 0px 8px 0px;
   margin: 0px;
-  left: 0%;
+  right: 0%;
 `;
 
 export const Sponsored = styled.p`
