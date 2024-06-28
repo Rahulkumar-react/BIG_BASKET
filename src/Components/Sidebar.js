@@ -331,7 +331,7 @@ const SideBar = () => {
             },
             display: "flex",
             justifyContent: "space-between",
-            padding: "8px",
+            // padding: "8px",
           }}
         >
           <Box

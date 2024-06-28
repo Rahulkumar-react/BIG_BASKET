@@ -11,8 +11,30 @@ import {
   Typography,
   Collapse,
 } from "@mui/material";
-import {BackImage, CardContents, Category, CustomInput, Discounts, Image, ImageBody, NewPrice, OffDisDetails, Offer, OfferContent, OfferDiscount, OfferHead, OfferPrice, OfferTitle, OldPrice, PersentageImage, ProductName, Rating, RatingCounts, Sponsored, } from './ProductCardStyle'
-import React from "react";
+import {
+  BackImage,
+  CardContents,
+  Category,
+  CustomInput,
+  Discounts,
+  Image,
+  ImageBody,
+  NewPrice,
+  OffDisDetails,
+  Offer,
+  OfferContent,
+  OfferDiscount,
+  OfferHead,
+  OfferPrice,
+  OfferTitle,
+  OldPrice,
+  PersentageImage,
+  ProductName,
+  Rating,
+  RatingCounts,
+  Sponsored,
+} from "./ProductCardStyle";
+import React, { useState } from "react";
 import styled from "styled-components";
 import TendorCoconut from "../Assets/tender-coconut.jpg";
 import SponsoredIcon from "../Assets/sponsoredIcon.jpg";
@@ -27,14 +49,17 @@ import NeemLeaves from "../Assets/neem-leaves.png";
 import Avocado from "../Assets/avocado.png";
 import Pear from "../Assets/pear.png";
 import Dragon from "../Assets/dragon.png";
-import SweetCorn  from "../Assets/sweet-corn.png";
+import SweetCorn from "../Assets/sweet-corn.png";
 import GradeIcon from "@mui/icons-material/Grade";
 import TurnedInNotIcon from "@mui/icons-material/TurnedInNot";
 import CancelIcon from "@mui/icons-material/Cancel";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import ProductFilter from "../../Components/ProductFilter";
 import { useNavigate } from "react-router-dom";
-
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 const Data = [
   {
@@ -48,7 +73,7 @@ const Data = [
   {
     ProductId: 2,
     ProductName: "Cucumber - English (Loose)",
-     ProductIamge: Cucumber,
+    ProductIamge: Cucumber,
     NewPrice: 60,
     OldPrice: 84.16,
     Discount: null,
@@ -56,7 +81,7 @@ const Data = [
   {
     ProductId: 3,
     ProductName: "Broccoli",
-     ProductIamge: Broccoli,
+    ProductIamge: Broccoli,
     NewPrice: 53,
     OldPrice: 58.16,
     Discount: 40,
@@ -80,7 +105,7 @@ const Data = [
   {
     ProductId: 6,
     ProductName: "Neem Leaves - Organically Grown",
-     ProductIamge: NeemLeaves,
+    ProductIamge: NeemLeaves,
     NewPrice: 21,
     OldPrice: 46.16,
     Discount: 27,
@@ -88,7 +113,7 @@ const Data = [
   {
     ProductId: 7,
     ProductName: "Avocado - Imported, Medium (Loose)",
-     ProductIamge: Avocado,
+    ProductIamge: Avocado,
     NewPrice: 100,
     OldPrice: 156.16,
     Discount: 25,
@@ -96,7 +121,7 @@ const Data = [
   {
     ProductId: 8,
     ProductName: "Pear - Green, Imported",
-     ProductIamge: Pear,
+    ProductIamge: Pear,
     NewPrice: 66,
     OldPrice: 88.16,
     Discount: 10,
@@ -104,7 +129,7 @@ const Data = [
   {
     ProductId: 9,
     ProductName: "Dragon Fruit (Loose)",
-     ProductIamge: Dragon,
+    ProductIamge: Dragon,
     NewPrice: 190,
     OldPrice: 456.16,
     Discount: 67,
@@ -112,17 +137,19 @@ const Data = [
   {
     ProductId: 10,
     ProductName: "Sweet Corn (Loose)",
-     ProductIamge: SweetCorn,
+    ProductIamge: SweetCorn,
     NewPrice: 90,
     OldPrice: 106.16,
     Discount: 7,
   },
 ];
 
-const ProductCard = ({url }) => {
+const ProductCard = ({ url }) => {
   const [kilogram, setKilogram] = React.useState("");
   const [showOffer, setShowOffer] = React.useState(false);
- const navicate= useNavigate();
+  const [cartStyle, setCartStyle] = useState(false);
+  const [orderCounts, setOrderCounts] = useState({});
+  const navicate = useNavigate();
   const handleChange = (event) => {
     setKilogram(event.target.value);
   };
@@ -131,22 +158,54 @@ const ProductCard = ({url }) => {
     setShowOffer(!showOffer);
   };
   const handleClick = () => {
-    const url = '/ProductDetails'; // Define the URL
-    window.open(url, '_blank'); // Open the URL in a new tab
+    const url = "/ProductDetails";
+    window.open(url, "_blank");
   };
+
+  const handleChangeCart = () => {
+    setCartStyle(!cartStyle);
+  };
+
+  const OrderCountAdd = (productId) => {
+    setOrderCounts((prevCounts) => ({
+      ...prevCounts,
+      [productId]: (prevCounts[productId] || 0) + 1,
+    }));
+  };
+
+  const OrderCountLess = (productId) => {
+    setOrderCounts((prevCounts) => ({
+      ...prevCounts,
+      [productId]: Math.max(0, (prevCounts[productId] || 0) - 1),
+    }));
+  };
+
   return (
     <>
       {/* <Grid>
         <ProductFilter />
       </Grid> */}
-      <Box sx={{mt: 2.5, mb: 10, display: "flex", flexWrap: "wrap", columnGap: 2 }}>
-        {Data.map((items) => (
-          <Card
-            sx={{ width: { xs: "100%", sm: 264 }, mb: 2, display: "flex",boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
-            key={items.ProductId}
-          >
-            <CardContent>
-              <Collapse in={!showOffer} timeout={2000}>
+      <Grid container sx={{justifyContent: 'space-between',mt: 2.5,
+          mb: 10,}}>
+        {Data.map((items, e) => (
+          <Grid xs={12} md={3.8}>
+            <Card
+              sx={{
+                // width: { xs: "100%", sm: 264 },
+                mb: 2,
+                display: "flex",
+                boxShadow: "rgba(0, 0, 0, 0.24) 0px 1px 5px",
+                borderRadius: "20px",
+              }}
+              key={items.ProductId}
+            >
+              <CardContent
+                sx={{
+                  display: "flex",
+                  flexFlow: "column",
+                  justifyContent: "space-between",
+                }}
+              >
                 <Grid>
                   <Grid
                     sx={{
@@ -160,46 +219,18 @@ const ProductCard = ({url }) => {
                     <ImageBody onClick={handleClick}>
                       <Image src={items.ProductIamge} alt="Tender Coconut" />
                     </ImageBody>
-                    <Discounts
-                      style={{
-                        visibility: !items.Discount ? "hidden" : "block",
-                      }}
-                    >
-                      {items.Discount}% OFF
+                    <Discounts>
+                      {!cartStyle ? (
+                        <FavoriteBorderIcon onClick={handleChangeCart} />
+                      ) : (
+                        <FavoriteIcon
+                          sx={{ color: "red" }}
+                          onClick={handleChangeCart}
+                        />
+                      )}
                     </Discounts>
                   </Grid>
-                  <Grid sx={{ textAlign: "start" }}>
-                    <Sponsored>
-                      <Grid
-                        sx={{ display: "flex",alignItems: 'center', padding: "1.5px 10px 3px 10px" }}
-                      >
-                        <img src={SponsoredIcon} alt="Sponsored" />
-                        <Typography sx={{ fontSize: "12px" }}>
-                          Sponsored
-                        </Typography>
-                      </Grid>
-                    </Sponsored>
-                    <Category>Fresho</Category>
-                  </Grid>
                   <ProductName>{items.ProductName}</ProductName>
-                  <Grid sx={{ display: "flex", columnGap: 0.6 }}>
-                    <Rating>
-                      <Typography
-                        sx={{
-                          fontSize: "12px",
-                          marginTop: "2.5px",
-                          color: "#476f00",
-                        }}
-                      >
-                        3.9
-                      </Typography>
-                      <GradeIcon
-                        fontSize="small"
-                        sx={{ marginTop: "1px", color: "#476f00" }}
-                      />
-                    </Rating>
-                    <RatingCounts>424 Ratings</RatingCounts>
-                  </Grid>
                   <FormControl sx={{ mt: 1, minWidth: "100%" }}>
                     <Select
                       sx={{ paddingY: 0 }}
@@ -221,78 +252,167 @@ const ProductCard = ({url }) => {
                     <NewPrice>₹{items.NewPrice}</NewPrice>
                     <OldPrice>₹{items.OldPrice}</OldPrice>
                   </Grid>
-                  <Grid>
-                    <Button
-                      sx={{
-                        visibility: !items.Discount ? "hidden" : "block",
-                        width: "100%",
-                        borderColor: "#add566",
-                        background:
-                          "linear-gradient(90deg, #FFFFFF 0%, #63FF0057 100%)",
-                        color: "#476f00",
-                        "&:hover": {
-                          borderColor: "#add566",
-                        },
-                      }}
-                      variant="outlined"
-                      size="small"
-                      onClick={handleOfferClick}
-                    >
-                      Har Din Sasta!
-                    </Button>
+                </Grid>
+                <Grid container sx={{ marginTop: "auto" }}>
+                  <Grid
+                    xs={12}
+                    sx={{
+                      textAlign: "end",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "end",
+                      columnGap: 2,
+                    }}
+                  >
+                    {(orderCounts[items.ProductId] || 0) < 1 ? (
+                      <Button
+                        sx={{
+                          width: "100%",
+                          justifyContent: "space-between",
+                          "&:hover": {
+                            backgroundColor: "#cc0000",
+                            color: "#ffffff",
+                          },
+                        }}
+                        variant="outlined"
+                        color="error"
+                        endIcon={<AddIcon />}
+                        onClick={() => OrderCountAdd(items.ProductId)}
+                      >
+                        Add
+                      </Button>
+                    ) : (
+                      <>
+                        <Grid
+                          sx={{
+                            border: "1px solid",
+                            display: "flex",
+                            alignItems: "center",
+                            padding: 1,
+                            borderRadius: "50%",
+                          }}
+                        >
+                          <RemoveIcon
+                            onClick={() => OrderCountLess(items.ProductId)}
+                          />
+                        </Grid>
+                        <Typography sx={{ fontSize: "18px" }}>
+                          {" "}
+                          {orderCounts[items.ProductId]}
+                        </Typography>
+
+                        <Grid
+                          sx={{
+                            border: "1px solid",
+                            display: "flex",
+                            alignItems: "center",
+                            padding: 1,
+                            borderRadius: "50%",
+                          }}
+                        >
+                          <AddIcon
+                            onClick={() => OrderCountAdd(items.ProductId)}
+                          />
+                        </Grid>
+                      </>
+                    )}
                   </Grid>
                 </Grid>
-              </Collapse>
-              <Collapse in={showOffer} timeout={2000}>
-                <Grid>
-                  <Category>Fresho</Category>
-                  <ProductName>
-                    Tender Coconut Water With Pulpy Malai
-                  </ProductName>
-                  <Grid sx={{ display: "flex", columnGap: 0.5 }}>
-                    <NewPrice>₹{items.NewPrice}</NewPrice>
-                    <OldPrice>₹{items.OldPrice}</OldPrice>
-                  </Grid>
-                  <Grid sx={{ textAlign: "end" }}>
-                    <CancelIcon
-                      sx={{ color: "black" }}
-                      onClick={handleOfferClick}
-                    />
-                  </Grid>
-                  <Offer>
-                    <BackImage src={offerBackground} alt="" />
-                    <OfferContent>
-                      <PersentageImage src={image} alt="" />
-                      <OfferHead>
-                        <OfferTitle>Har Din Sasta!</OfferTitle>
-                      </OfferHead>
-                      <OfferDiscount>{items.Discount}% Off!</OfferDiscount>
-                      <OffDisDetails>
-                        Get up to <OfferPrice>5</OfferPrice> qty at{" "}
-                        <OfferPrice>₹43</OfferPrice> and additional Qty at{" "}
-                        <OfferPrice>₹{items.Discount}</OfferPrice>
-                      </OffDisDetails>
-                    </OfferContent>
-                  </Offer>
-                </Grid>
-              </Collapse>
-              <Grid container sx={{ mt: 1 }}>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+      {/* <Box
+        sx={{
+          mt: 2.5,
+          mb: 10,
+          display: "flex",
+          // justifyContent: 'space-between',
+          flexWrap: "wrap",
+          columnGap: 2,
+        }}
+      >
+        {Data.map((items, e) => (
+          <Card
+            sx={{
+              width: { xs: "100%", sm: 264 },
+              mb: 2,
+              display: "flex",
+              boxShadow: "rgba(0, 0, 0, 0.24) 0px 1px 5px",
+              borderRadius: '20px'
+            }}
+            key={items.ProductId}
+          >
+            <CardContent
+              sx={{
+                display: "flex",
+                flexFlow: "column",
+                justifyContent: "space-between",
+              }}
+            >
+              <Grid>
                 <Grid
                   sx={{
-                    border: "1px solid",
-                    borderRadius: 1,
                     display: "flex",
                     justifyContent: "center",
-                    alignItems: "center",
+                    border: "1px solid #eeeeee",
+                    position: "relative",
+                    borderRadius: "8px",
                   }}
-                  xs={2}
                 >
-                  <TurnedInNotIcon />
+                  <ImageBody onClick={handleClick}>
+                    <Image src={items.ProductIamge} alt="Tender Coconut" />
+                  </ImageBody>
+                  <Discounts>
+                    {!cartStyle ? (
+                      <FavoriteBorderIcon onClick={handleChangeCart} />
+                    ) : (
+                      <FavoriteIcon
+                        sx={{ color: "red" }}
+                        onClick={handleChangeCart}
+                      />
+                    )}
+                  </Discounts>
                 </Grid>
-                <Grid xs={10} sx={{ textAlign: "end" }}>
-                  <Button
+                <ProductName>{items.ProductName}</ProductName>
+                <FormControl sx={{ mt: 1, minWidth: "100%" }}>
+                  <Select
+                    sx={{ paddingY: 0 }}
+                    value={kilogram}
+                    onChange={handleChange}
+                    displayEmpty
+                    input={<CustomInput />}
+                    inputProps={{ "aria-label": "Without label" }}
+                  >
+                    <MenuItem sx={{ marginTop: 2 }} value="">
+                      250 Ml
+                    </MenuItem>
+                    <MenuItem value={10}>500ml</MenuItem>
+                    <MenuItem value={20}>1 kg</MenuItem>
+                    <MenuItem value={30}>1.5 kg</MenuItem>
+                  </Select>
+                </FormControl>
+                <Grid sx={{ display: "flex", columnGap: 0.5, mb: 5 }}>
+                  <NewPrice>₹{items.NewPrice}</NewPrice>
+                  <OldPrice>₹{items.OldPrice}</OldPrice>
+                </Grid>
+              </Grid>
+              <Grid container sx={{ marginTop: "auto" }}>
+                <Grid
+                  xs={12}
+                  sx={{
+                    textAlign: "end",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "end",
+                    columnGap: 2
+                  }}
+                >
+                  {(orderCounts[items.ProductId] || 0) < 1 ? (<Button
                     sx={{
-                      width: "97%",
+                      width: "100%",
+                      justifyContent: 'space-between',
                       "&:hover": {
                         backgroundColor: "#cc0000",
                         color: "#ffffff",
@@ -300,15 +420,29 @@ const ProductCard = ({url }) => {
                     }}
                     variant="outlined"
                     color="error"
+                    endIcon={<AddIcon />}
+                    onClick={() => OrderCountAdd(items.ProductId)}
                   >
                     Add
-                  </Button>
+                  </Button>)
+                  : 
+                  (<>
+                  <Grid sx={{ border: "1px solid",  display: "flex",
+                    alignItems: "center", padding: 1, borderRadius: '50%' }}>
+                    <RemoveIcon onClick={() => OrderCountLess(items.ProductId)}/>
+                  </Grid>
+                  <Typography sx={{fontSize: "18px"}}> {orderCounts[items.ProductId]}</Typography>
+                 
+                  <Grid sx={{ border: "1px solid",  display: "flex",
+                    alignItems: "center", padding: 1, borderRadius: '50%' }}>
+                    <AddIcon onClick={() => OrderCountAdd(items.ProductId)}/>
+                  </Grid></>)}
                 </Grid>
               </Grid>
             </CardContent>
           </Card>
         ))}
-      </Box>
+      </Box> */}
     </>
   );
 };

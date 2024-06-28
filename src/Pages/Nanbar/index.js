@@ -1,449 +1,240 @@
-import React from "react";
-import { FaBars } from "react-icons/fa";
+import * as React from "react";
+import { styled, alpha } from "@mui/material/styles";
+import Farmlogo from "../Assets/Farm2Kitchen.png";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import InputBase from "@mui/material/InputBase";
+import Badge from "@mui/material/Badge";
+import MenuItem from "@mui/material/MenuItem";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import Logo from "../Assets/BigBasKetLogo.png";
-import Smart from "../Assets/Smart_basket-250124-1.png";
-import Offer from "../Assets/hp_cmc_m_offer_28_220921_all.png";
-import ExploreIcon from "@mui/icons-material/Explore";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
-import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
-import {
-  Boximage,
-  Deleteicon,
-  Img,
-  Logaion,
-  Logaionbutton,
-  Loginbutton,
-  Loginimage,
-  MobileIcon,
-  Nav,
-  NavButton,
-  NavItems,
-  NavLink,
-  NavLogo,
-  NavbarContainer,
-  SearchContainer,
-  Texticon,
-} from "./NavbarStyleComponents";
-import Sidebar from "../../Components/Sidebar";
-import {
-  Container,
-  Grid,
-  IconButton,
-  InputBase,
-  Menu,
-  MenuItem,
-  Paper,
-  Typography,
-} from "@mui/material";
-import ProductFilter from "../../Components/ProductFilter";
-import Signin from "./Signin";
-import { Box, display, fontWeight } from "@mui/system";
-import { useLocation, useNavigate } from "react-router-dom";
-import { GiRopeDart } from "react-icons/gi";
-
-const pages = [
-  "Milk",
-  "Yogurt & Shrikhand",
-  "Chocolates",
-  "Cup Noodles",
-  "Hair Care",
-  "Fresh Chicken",
-  "Eggs",
-  "Honey",
-];
-
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import MailIcon from "@mui/icons-material/Mail";
+import ListIcon from "@mui/icons-material/List";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import MoreIcon from "@mui/icons-material/MoreVert";
+import { Container } from "@mui/system";
+import { Button } from "@mui/material";
+import NavMenuItem from "./NavMenuItem";
+import { Link } from "react-router-dom";
 const Navbar = () => {
-  const ProfileStyle = {
-    color: "white",
-    marginY: 0.5,
-    "&:hover": {
-      backgroundColor: "#5a5a5a",
-      fontWeight: 600,
-    },
-  };
-  const location = useLocation();
-  const navigate = useNavigate();
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [open, setOpen] = React.useState(false);
-  const [anchorElPro, setAnchorElPro] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [anchorElLocation, setAnchorElLocation] = React.useState(null);
+  const isMenuOpen = Boolean(anchorEl);
+  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleOpenUserLocation = (event) => {
-    setAnchorElLocation(event.currentTarget);
+  const handleProfileMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
   };
 
-  const handleCloseUserLocation = () => {
-    setAnchorElLocation(null);
+  const handleMobileMenuClose = () => {
+    setMobileMoreAnchorEl(null);
   };
 
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const handleMobileMenuOpen = (event) => {
+    setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const handleOpen = () => {
-    navigate("/dashboradd");
-    // setOpen(true);
-  };
-  console.log(location.pathname);
-  const handleClose = () => setOpen(false);
+  const menuId = "primary-search-account-menu";
+  const renderMenu = (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      id={menuId}
+      keepMounted
+      transformOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+    >
+      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+    </Menu>
+  );
 
-  const handleOpenProMenu = (event) => {
-    setAnchorElPro(event.currentTarget);
-  };
+  const mobileMenuId = "primary-search-account-menu-mobile";
+  const renderMobileMenu = (
+    <Menu
+      anchorEl={mobileMoreAnchorEl}
+      anchorOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      id={mobileMenuId}
+      keepMounted
+      transformOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      open={isMobileMenuOpen}
+      onClose={handleMobileMenuClose}
+    >
+      <MenuItem>
+        <IconButton
+          size="large"
+          aria-label="show 17 new notifications"
+          color="inherit"
+        >
+          <Badge badgeContent={0} color="error">
+            <ShoppingCartIcon />
+          </Badge>
+        </IconButton>
+        <p>Cart</p>
+      </MenuItem>
+      <MenuItem onClick={handleProfileMenuOpen}>
+        <IconButton
+          size="large"
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <AccountCircle />
+        </IconButton>
+        <p>Profile</p>
+      </MenuItem>
+    </Menu>
+  );
 
-  const handleCloseProMenu = () => {
-    setAnchorElPro(null);
-  };
-
-  const handleAddproduct = () => {
-    navigate("/Addproduct");
-  };
   return (
-    <Box>
-      <Signin open={open} onClose={handleClose} />
-      <Nav>
-        <NavbarContainer>
-          <MobileIcon>
-            <FaBars
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-            />
-          </MobileIcon>
-          <NavLogo>
-            <Img src={Logo} style={{ width: "100%" }} alt="hero-image" />
-          </NavLogo>
-          <NavItems>
-            <SearchContainer>
-              <SearchIcon />
-              <input type="text" placeholder="Search for Products..." />
-            </SearchContainer>
+    <>
+      <AppBar
+        position="fixed"
+        sx={{ paddingBottom: 1.5, backgroundColor: "#0078ad" }}
+      >
+        <Container maxWidth="lg">
+          <Toolbar sx={{ display: "flex", alignItems: "end" }}>
+            <Box sx={{ width: "15%" }}>
+              <img
+                style={{ width: "100%", height: "9vh" }}
+                src={Farmlogo}
+                alt=""
+              />
+            </Box>
 
-            {location.pathname !== "/" ? (
-              <Grid
+            {/* <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ display: { xs: "none", sm: "block" } }}
+            >
+              Farm2kitchen
+            </Typography> */}
+            <Button
+              size="small"
+              variant="text"
+              startIcon={<LocationOnIcon />}
+              sx={{
+                fontSize: "14px",
+                color: "white",
+                paddingX: 2,
+                marginBottom: 1,
+                borderRadius: "18px",
+                "&:hover": {
+                  backgroundColor: "#0c5273",
+                },
+              }}
+            >
+              Deliver to Chennai
+            </Button>
+            <Box
+              sx={{
+                width: { xs: "auto", md: "35%", lg: "50%" },
+                marginBottom: 0.5,
+              }}
+            >
+              <Box
                 sx={{
-                  background: "#eeeeee",
                   display: "flex",
-                  alignItems: "center",
-                  borderRadius: "5px",
-                  // width: "17%",
-                  height: "7vh",
-                  paddingX: 3.5,
-                  cursor: "pointer",
+                  width: "90%",
+                  bgcolor: "grey.800",
+                  borderRadius: 6,
+                  margin: "auto",
+                  backgroundColor: "#0c5273",
                 }}
               >
-                <Grid
-                  onClick={handleOpenUserLocation}
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    padding: "auto",
-                    columnGap: 1,
-                  }}
+                <IconButton
+                  type="button"
+                  sx={{ p: "10px", color: "white" }}
+                  aria-label="search"
                 >
-                  <ExploreIcon
-                    sx={{
-                      color: "black",
-                      backgroundColor: "white",
-                      borderRadius: "50%",
-                    }}
-                  />
-                  <Typography
-                    sx={{
-                      color: "black",
-                      fontSize: "14px",
-                      textWrap: { xs: "wrap", lg: "nowrap" },
-                    }}
-                  >
-                    Select Loaction
-                  </Typography>
-                </Grid>
-                <Menu
-                  sx={{
-                    width: "83%",
-                    mt: "45px",
-                    "& .MuiPaper-root": {
-                      backgroundColor: "#eeeeee",
-                    },
-                  }}
-                  id="menu-appbar"
-                  anchorEl={anchorElLocation}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "center",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "center",
-                  }}
-                  open={Boolean(anchorElLocation)}
-                  onClose={handleCloseUserLocation}
+                  <SearchIcon />
+                </IconButton>
+                <InputBase
+                  sx={{ ml: 1, flex: 1, color: "white" }}
+                  placeholder="Search Farm2Kitchen"
+                  inputProps={{ "aria-label": "Search Farm2Kitchen" }}
+                />
+                <IconButton
+                  sx={{ p: "10px", color: "white" }}
+                  aria-label="menu"
                 >
-                  <Grid onClick={handleCloseUserLocation} sx={{ margin: 2 }}>
-                    <Typography>Select a location for delivery</Typography>
-                    <Typography sx={{ fontSize: "12px", textWrap: "wrap" }}>
-                      Choose your address location to see product availability
-                      and delivery options
-                    </Typography>
-                    <Grid sx={{ marginTop: 3 }}>
-                      <Paper
-                        component="form"
-                        sx={{
-                          p: "2px 4px",
-                          display: "flex",
-                          alignItems: "center",
-                          width: "100%",
-                        }}
-                      >
-                        <IconButton
-                          type="button"
-                          sx={{ p: "10px" }}
-                          aria-label="search"
-                        >
-                          <SearchIcon />
-                        </IconButton>
-                        <InputBase
-                          sx={{ ml: 1, flex: 1 }}
-                          placeholder="Search for area or street name"
-                          inputProps={{
-                            "aria-label": "Search for area or street name",
-                          }}
-                        />
-                      </Paper>
-                    </Grid>
-                  </Grid>
-                </Menu>
-              </Grid>
-            ) : (
-              <Logaion>
-                <Texticon>
-                  Get it in 2 hrs
-                  <br />
-                  600032,Chennai
-                </Texticon>
-              </Logaion>
-            )}
-
-            {location.pathname !== "/" ? (
-              <>
-                <Logaion
-                  style={{
-                    background: "#eeeeee",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <AccountCircleIcon
-                    onClick={handleOpenUserMenu}
-                    sx={{
-                      fontSize: "30px",
-                      color: "black",
-                      backgroundColor: "white",
-                      borderRadius: "50%",
-                      cursor: "pointer",
-                    }}
-                  />
-                </Logaion>
-                <Menu
-                  sx={{
-                    mt: "45px",
-                    "& .MuiPaper-root": {
-                      backgroundColor: "black",
-                    },
-                  }}
-                  id="menu-appbar"
-                  anchorEl={anchorElUser}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "center",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "center",
-                  }}
-                  open={Boolean(anchorElUser)}
-                  onClose={handleCloseUserMenu}
-                >
-                  <MenuItem sx={ProfileStyle} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">My Account</Typography>
-                  </MenuItem>
-                  <MenuItem
-                    sx={{ ...ProfileStyle, columnGap: 8 }}
-                    onClick={handleCloseUserMenu}
-                  >
-                    <Typography textAlign="center">My Basket</Typography>
-                    <Typography
-                      sx={{
-                        backgroundColor: "#d63333",
-                        fontSize: "12px",
-                        paddingY: 0.8,
-                        paddingX: 1.5,
-                        color: "white",
-                        borderRadius: "16px",
-                      }}
-                    >
-                      0 Item
-                    </Typography>
-                  </MenuItem>
-                  <MenuItem sx={ProfileStyle} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">My Order</Typography>
-                  </MenuItem>
-                  <MenuItem sx={ProfileStyle} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">My Smart Basket</Typography>
-                  </MenuItem>
-                  <MenuItem
-                    sx={{ ...ProfileStyle, justifyContent: "space-between" }}
-                    onClick={handleCloseUserMenu}
-                  >
-                    <Typography textAlign="center">My Wallet</Typography>
-                    <Typography
-                      sx={{
-                        backgroundColor: "#76b900",
-                        fontSize: "12px",
-                        paddingY: 0.8,
-                        paddingX: 1.5,
-                        color: "white",
-                        borderRadius: "16px",
-                      }}
-                    >
-                      ₹ 0
-                    </Typography>
-                  </MenuItem>
-                  <MenuItem sx={ProfileStyle} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">Contact Us</Typography>
-                  </MenuItem>
-                  <MenuItem sx={ProfileStyle} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">Log Out</Typography>
-                  </MenuItem>
-                </Menu>
-              </>
-            ) : (
-              <Logaionbutton style={{ background: "#202020" }}>
-                <Loginbutton onClick={handleOpen}>Login/SingUp</Loginbutton>
-              </Logaionbutton>
-            )}
-
-            <Deleteicon style={{ background: "#fae6e6" }}>
-              <ShoppingBasketIcon
-                sx={{
-                  fontSize: "28px",
-                  backgroundColor: "red",
-                  color: "white",
-                  padding: "4px 5px 5px 5px ",
-                  borderRadius: "50%",
-                  cursor: "pointer",
-                }}
-                onClick={handleAddproduct}
-              />
-            </Deleteicon>
-          </NavItems>
-        </NavbarContainer>
-      </Nav>
-
-      <Nav>
-        <NavbarContainer>
-          <MobileIcon>
-            <FaBars
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-            />
-          </MobileIcon>
-          <NavLogo>
-            <NavButton style={{ background: "#476F00" }}>
-              Shop by<b style={{ fontWeight: "bold" }}> Category</b>
-            </NavButton>
-          </NavLogo>
-          <NavItems>
-            <NavLink>Exotic Fruits & Vegg</NavLink>
-            {/* <NavLink /> */}
-            <NavLink>Tea</NavLink>
-            {/* <NavLink /> */}
-            <NavLink>Ghee</NavLink>
-            {/* <NavLink /> */}
-            <NavLink>Nandini</NavLink>
-            <NavLink>Fresh Vegetables</NavLink>
-            <Grid>
+                  <ListIcon />
+                </IconButton>
+              </Box>
+            </Box>
+            {/* <Box sx={{ flexGrow: 1 }} /> */}
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
               <IconButton
-                sx={{ color: "black" }}
                 size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenProMenu}
+                aria-label="show 17 new notifications"
                 color="inherit"
               >
-                <KeyboardDoubleArrowRightIcon />
+                <Badge badgeContent={0} color="error">
+                  <ShoppingCartIcon />
+                </Badge>
               </IconButton>
-              <Menu
-                anchorEl={anchorElPro}
-                open={Boolean(anchorElPro)}
-                onClose={handleCloseProMenu}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                // onClick={handleProfileMenuOpen}
+                color="inherit"
               >
-                {pages.map((page) => (
-                  <MenuItem
-                    sx={{
-                      "&:hover": {
-                        backgroundColor: "transparent",
-                      },
-                    }}
-                    key={page}
-                    onClick={handleCloseProMenu}
-                  >
-                    <Typography
-                      sx={{
-                        marginY: 1,
-                        paddingRight: 5,
-                        "&:hover": {
-                          backgroundColor: "transparent",
-                        },
-                      }}
-                    >
-                      {page}
-                    </Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Grid>
-          </NavItems>
-          <Loginimage>
-            <Boximage>
-              <Img src={Smart} />
-            </Boximage>
-            <Boximage>
-              <Img src={Offer} />
-            </Boximage>
-          </Loginimage>
-        </NavbarContainer>
-      </Nav>
-      {/* <Grid>
-        <ProductFilter />
-      </Grid> */}
-      {/* <Container > */}
-      {/* <NavbarContainer> */}
-
-      {/* </NavbarContainer> */}
-      {/* </Container > */}
-    </Box>
+                <Link to={"/dashboradd"} style={{color: "inherit"}}>
+                  <AccountCircle />
+                </Link>
+              </IconButton>
+            </Box>
+            <Box sx={{ display: { xs: "flex", md: "none" } }}>
+              <IconButton
+                size="large"
+                aria-label="show more"
+                aria-controls={mobileMenuId}
+                aria-haspopup="true"
+                onClick={handleMobileMenuOpen}
+                color="inherit"
+              >
+                <MoreIcon />
+              </IconButton>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+      {renderMobileMenu}
+      {renderMenu}
+      <>
+        <NavMenuItem />
+      </>
+    </>
   );
 };
 

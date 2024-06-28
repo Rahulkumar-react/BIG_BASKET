@@ -6,11 +6,11 @@ import {
   AppStoreButton,
   ButtonsContainer,
 } from "react-mobile-app-button";
+import FarmLogo from '../Pages/Assets/Farm2Kitchens.png'
 import FacebookIcon from "@mui/icons-material/FacebookRounded";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import PinterestIcon from "@mui/icons-material/Pinterest";
-import fullLogo from "../Pages/Assets/Bigbasket.com_idoZy0ORE2_5.png";
 import insta from "../Pages/Assets/icons8-instagram-48.png";
 import twitterx from "../Pages/Assets/icons8-twitterx-48.png";
 import yt from "../Pages/Assets/icons8-youtube-48.png";
@@ -124,11 +124,11 @@ export const Footer = () => {
 
             <Grid item xs={12} sm={12} md={5} sx={{ paddingRight: "15px" }}>
               <img
-                src={fullLogo}
+                src={FarmLogo}
                 alt="Bigbasket Logo"
-                style={{ width: "156px", height: "56px", marginBottom: "20px" }}
+                style={{ width: "230px", height: "100px", marginBottom: "15px" }}
               />
-              {/* <Box sx={{ marginBottom: "24px" }}>
+              <Box sx={{ marginBottom: "24px" }}>
                 <ButtonsContainer>
                   <GooglePlayButton
                     // url={APKUrl}
@@ -141,7 +141,7 @@ export const Footer = () => {
                     style={{ borderColor: "#DDDDDD" }}
                   />
                 </ButtonsContainer>
-              </Box> */}
+              </Box>
               <Grid container sx={{ gap: "15px", marginBottom: "24px" }}>
                 {socialIcons.map((social, index) => (
                   <SocialIcon href="#" key={index}>

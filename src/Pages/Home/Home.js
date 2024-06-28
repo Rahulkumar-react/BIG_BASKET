@@ -211,27 +211,27 @@ const Home = () => {
 
   return (
     <>
-      <div style={{ marginTop: "150PX" }}>
+      <div style={{ marginTop: "140PX" }}>
           <SlideShowBar  Images={SlideShowTop}/>
         <ProductList />
-        <OfferCard Images={BankOffers} heading={'Bank Offers'} />
-        <Box sx={{ backgroundColor: "#f7f7f7" }}>
+        <OfferCard Images={BankOffers} heading={'Deels of Week'} />
+        <Box sx={{ backgroundColor: "#f7f7f7"}}>
           <Typography variant="h6" sx={{ textAlign: "start", fontWeight: 'bold' }}>
-            {"Best Sellers"}
+            {"Top Deals On Grocery"}
           </Typography>
           <ProductCard />
         </Box>
         <OfferCard Images={TopOffers} heading={'Top Offers'} />
       </div>
       <OfferCard Images={FruitsandVegetables} heading={'Fruit and Vegetables'} />
-      <AdsCard Images={YourDailyStaples} heading={'Your Daily Staples'} />
+      <AdsCard Images={YourDailyStaples} heading={'Trending Brands'} />
       <OfferCard Images={SnacksStore} heading={'Snacks Store'} />
       <AdsCard Images={Beverages} heading={'Beverages'} />
       <OfferCard Images={CleaningHousehold} heading={'Cleaning & Household'} />
       <AdsCard Images={daBeautyAndHygieneta} heading={'Beauty and Hygiene'} />
       <AdsCard Images={HomeAndKitchen} heading={'Home and Kitchen'} />
       <br />
-      <div style={{ marginTop: '20px', marginBottom: '20px' }}>
+      <div style={{  marginBottom: '20px' }}>
         <SlideShowBar Images={SlideShow}/>
       </div>
       <br />

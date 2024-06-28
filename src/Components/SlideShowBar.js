@@ -61,7 +61,7 @@ const SlideShowBar = ({ Images }) => {
   };
 
   return (
-    <Container>
+    // <Container>
     <Slider {...settings}>
       {Images.map((image, index) => (
         <div key={index} style={{ position: 'relative', zIndex: 1, marginTop: '20px', overflow: 'hidden', borderRadius: '25px' }}>
@@ -73,7 +73,7 @@ const SlideShowBar = ({ Images }) => {
         </div>
       ))}
     </Slider>
-    </Container>
+    // </Container>
   );
 };
 
