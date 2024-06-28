@@ -8,7 +8,7 @@ const DashboardLayout = () => {
   return (
     <>
       <Container>
-        <Grid style={{ marginTop: "150PX" }}>
+        <Grid>
           <ProductFilter />
         </Grid>
         <SideBar />

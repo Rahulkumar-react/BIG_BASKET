@@ -11,7 +11,7 @@ import Home from "./Home/Home";
 const LandingScreen = () => {
   return (
     <div style={{ backgroundColor: "#f7f7f7", paddingTop: "0px" }}>
-      <Box
+      {/* <Box
          sx={{
           width: "100%",
           background: {
@@ -20,11 +20,11 @@ const LandingScreen = () => {
           },
           display: "flex",
           justifyContent: "space-between",
-          padding: "8px",
+          // padding: "8px",
           position: "fixed",
           top: 0,
           left: 0,
-          boxShadow: "0px 4px 2px -2px gray",
+          // boxShadow: "0px 4px 2px -2px gray",
           display: {
             xs: "none",
             sm: "block",
@@ -33,7 +33,7 @@ const LandingScreen = () => {
         }}
       >
         <Navbar />
-      </Box>
+      </Box> */}
       <Container>
         <Home />
       </Container>
