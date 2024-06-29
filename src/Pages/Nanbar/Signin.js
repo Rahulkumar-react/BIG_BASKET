@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Modal, Box, Grid, TextField, Button } from "@mui/material";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import Quality from "../Assets/quality.jpg";
@@ -21,6 +22,11 @@ import {
 } from "./NavbarStyleComponents";
 
 const Signin = ({ open, onClose }) => {
+const Navigate = useNavigate()
+  const handledashboard = () => {
+    Navigate('/dashboradd');
+    onClose();
+  }
   return (
     <Modal
       open={open}
@@ -103,7 +109,7 @@ const Signin = ({ open, onClose }) => {
           <Grid
             sm={6}
             sx={{
-              backgroundColor: "#000000",
+              backgroundColor: "#0c5273",
               paddingY: 2.8,
               paddingX: 6,
               borderRadius: "0 20px 20px 0",
@@ -131,15 +137,17 @@ const Signin = ({ open, onClose }) => {
               </Grid>
               <Grid>
                 <Button
+                onClick={handledashboard}
                   variant="contained"
                   sx={{
-                    backgroundColor: "#3e0000",
+                    color: 'black',
+                    backgroundColor: "#efeeee",
                     width: "100%",
                     borderColor: "#484040",
                     mt: 5,
                     mb: 1,
                     "&:hover": {
-                      backgroundColor: "#3e0000",
+                      backgroundColor: "#efeeee",
                     },
                   }}
                 >

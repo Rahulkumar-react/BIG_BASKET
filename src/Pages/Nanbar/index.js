@@ -22,9 +22,11 @@ import { Container } from "@mui/system";
 import { Button } from "@mui/material";
 import NavMenuItem from "./NavMenuItem";
 import { Link } from "react-router-dom";
+import Signin from "./Signin";
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -45,7 +47,10 @@ const Navbar = () => {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
+  const handlechangelogin = () => {
+    setOpen(true);
+  };
+  const handleClose = () => setOpen(false);
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
@@ -114,6 +119,7 @@ const Navbar = () => {
 
   return (
     <>
+      <Signin open={open} onClose={handleClose} />
       <AppBar
         position="fixed"
         sx={{ paddingBottom: 1.5, backgroundColor: "#0078ad" }}
@@ -211,7 +217,7 @@ const Navbar = () => {
                 // onClick={handleProfileMenuOpen}
                 color="inherit"
               >
-                <Link to={"/dashboradd"} style={{ color: "inherit" }}>
+                <Link onClick={handlechangelogin} style={{ color: "inherit" }}>
                   <AccountCircle />
                 </Link>
               </IconButton>

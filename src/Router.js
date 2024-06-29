@@ -9,6 +9,7 @@ import DashboardLayout from "./Pages/DashboardLayout";
 import AddPaymentMthods from './Components/AddPaymentMthods';
 import PaymentNavBar from "./Components/PaymentNavBar";
 import Profile from "./Pages/UserDetails/Profile";
+import Signin from "./Pages/Nanbar/Signin";
 
 const Router = () => {
   return useRoutes([
@@ -29,7 +30,8 @@ const Router = () => {
     { path: "/ProductDetails", element: <ViewProductDetails /> },
     { path: "/Addproduct", element: <Addproduct /> },
     { path: "/AddPaymentMethods", element: <AddPaymentMthods /> },
-    { Path : "/MyAccount", element: <Profile />}
+    { Path : "/MyAccount", element: <Profile />},
+    {path: "/Login", element: <Signin />}
   ]);
 };
 
