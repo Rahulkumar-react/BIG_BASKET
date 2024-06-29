@@ -268,7 +268,8 @@ export const Otp = styled.p`
 export const Policy = styled.p`
   font-size: 12px;
   text-align: center;
-  color: #70705e;
+  // color: #70705e;
+  color: white;
   margin-bottom: 0px;
   margin-top: 0px;
 `;

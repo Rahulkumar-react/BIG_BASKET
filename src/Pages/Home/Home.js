@@ -22,17 +22,10 @@ import SlideShow2 from '../../Pages/Assets/slideshow2.webp';
 import SlideShow3 from '../../Pages/Assets/slideshow3.webp';
 import SlideShow4 from '../../Pages/Assets/slideshow4.webp';
 
-import BankOffers1 from '../../Pages/Assets/BankOffer1.png';
-import BankOffers2 from '../../Pages/Assets/BankOffer2.png';
-import BankOffers3 from '../../Pages/Assets/BankOffer3.png';
-import BankOffers4 from '../../Pages/Assets/BankOffer2.png';
-
 import DealsOfTheWeek1 from '../../Pages/Assets/Deals1.png';
 import DealsOfTheWeek2 from '../../Pages/Assets/Deals2.png';
 import DealsOfTheWeek3 from '../../Pages/Assets/Deals3.png';
 import DealsOfTheWeek4 from '../../Pages/Assets/Deals4.png';
-import DealsOfTheWeek5 from '../../Pages/Assets/Deals5.png';
-import DealsOfTheWeek6 from '../../Pages/Assets/Deals6.png';
 
 import TopOffers1 from '../../Pages/Assets/Topoffer1.webp';
 import TopOffers2 from '../../Pages/Assets/Topoffer2.webp';
@@ -71,6 +64,7 @@ import CleaningHousehold4 from '../../Pages/Assets/Cleaning&Household4.webp';
 
 import SlideShowTop1 from '../../Pages/Assets/slideshowTop1.webp';
 import SlideShowTop2 from '../../Pages/Assets/slideshowTop2.webp';
+import SlideShowTop3 from '../../Pages/Assets/SlideShowTop3.png';
 
 import makeup from "../Assets/makeup.png";
 import moisturiser from "../Assets/moisturiser.png";
@@ -91,8 +85,8 @@ import PaymentNavBar from "../../Components/PaymentNavBar";
 const ProductList = () => {
   const cards = [
     { imag: Card1 },
-    { imag: card2 },
-    { imag: card3 },
+    { imag: card5 },
+    { imag: card6 },
     { imag: card4 },
     { imag: card5 },
     { imag: card6 },
@@ -136,6 +130,7 @@ const Home = () => {
   const SlideShowTop = [
     { img: SlideShowTop1 },
     { img: SlideShowTop2 },
+    { img: SlideShowTop3 },
   ]
 
   const SlideShow = [
@@ -233,7 +228,7 @@ const Home = () => {
       </div>
       <OfferCard Images={FruitsandVegetables} heading={'Fruit and Vegetables'} />
       <AdsCard Images={YourDailyStaples} heading={'Trending Brands'} />
-      <OfferCard Images={SnacksStore} heading={'Snacks Store'} />
+      <OfferCard Images={SnacksStore} heading={'The Snack Spot'} />
       <AdsCard Images={Beverages} heading={'Beverages'} />
       <OfferCard Images={CleaningHousehold} heading={'Cleaning & Household'} />
       <AdsCard Images={daBeautyAndHygieneta} heading={'Beauty and Hygiene'} />
