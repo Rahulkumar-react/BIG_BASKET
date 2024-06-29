@@ -8,9 +8,9 @@ const OfferCard = ({Images, heading}) => {
       return (
         <Grid >
           <SectionHeading>{heading}</SectionHeading>
-          <Grid container spacing={2} marginBottom={2}>
+          <Grid container spacing={2} marginBottom={2} sx={{justifyContent: 'center'}}>
             {Images.map((cardValue, index) => (
-              <Grid item sm={12} md={6} lg={3}>
+              <Grid item xs={10} sm={6} md={3} lg={3}>
                 <Box
                   sx={{
                     height: "200px",

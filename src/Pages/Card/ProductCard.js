@@ -188,10 +188,11 @@ const ProductCard = ({ url }) => {
       {/* <Grid container sx={{justifyContent: 'space-between',mt: 2.5,
           mb: 10,}}>
         {Data.map((items, e) => (
-          <Grid xs={12} md={3.4}>
+          <Grid xs={12} sm={6} md={4} lg={3}>
             <Card
               sx={{
                 // width: { xs: "100%", sm: 264 },
+                width: '90%',
                 mb: 2,
                 display: "flex",
                 boxShadow: "rgba(0, 0, 0, 0.24) 0px 1px 5px",
@@ -204,6 +205,7 @@ const ProductCard = ({ url }) => {
                   display: "flex",
                   flexFlow: "column",
                   justifyContent: "space-between",
+                   width: '100%'
                 }}
               >
                 <Grid>
@@ -328,9 +330,9 @@ const ProductCard = ({ url }) => {
           mt: 2.5,
           mb: 10,
           display: "flex",
-          // justifyContent: 'space-between',
           flexWrap: "wrap",
-          columnGap: 2,
+          // justifyContent: 'space-evenly',
+          columnGap: {sm: 1, md: 2, lg: 2},
         }}
       >
         {Data.map((items, e) => (
@@ -340,7 +342,7 @@ const ProductCard = ({ url }) => {
               mb: 2,
               display: "flex",
               boxShadow: "rgba(0, 0, 0, 0.24) 0px 1px 5px",
-              borderRadius: '20px'
+              borderRadius: '20px',
             }}
             key={items.ProductId}
           >
@@ -349,6 +351,7 @@ const ProductCard = ({ url }) => {
                 display: "flex",
                 flexFlow: "column",
                 justifyContent: "space-between",
+                width: '100%'
               }}
             >
               <Grid>

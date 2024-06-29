@@ -27,6 +27,13 @@ import BankOffers2 from '../../Pages/Assets/BankOffer2.png';
 import BankOffers3 from '../../Pages/Assets/BankOffer3.png';
 import BankOffers4 from '../../Pages/Assets/BankOffer2.png';
 
+import DealsOfTheWeek1 from '../../Pages/Assets/Deals1.png';
+import DealsOfTheWeek2 from '../../Pages/Assets/Deals2.png';
+import DealsOfTheWeek3 from '../../Pages/Assets/Deals3.png';
+import DealsOfTheWeek4 from '../../Pages/Assets/Deals4.png';
+import DealsOfTheWeek5 from '../../Pages/Assets/Deals5.png';
+import DealsOfTheWeek6 from '../../Pages/Assets/Deals6.png';
+
 import TopOffers1 from '../../Pages/Assets/Topoffer1.webp';
 import TopOffers2 from '../../Pages/Assets/Topoffer2.webp';
 import TopOffers3 from '../../Pages/Assets/Topoffer3.webp';
@@ -94,7 +101,7 @@ const ProductList = () => {
     // <Grid sx={{ margin: "25px" }}>
     <Grid container spacing={2} sx={{ paddingY: 5 }}>
       {cards.map((cardValue, index) => (
-        <Grid item sm={12} md={6} lg={2}>
+        <Grid item xs={6} sm={4} md={2} lg={2}>
           <Box
             sx={{
               height: "52px",
@@ -139,11 +146,12 @@ const Home = () => {
 
   ];
 
-  const BankOffers = [
-    { image: BankOffers1 },
-    { image: BankOffers2 },
-    { image: BankOffers3 },
-    { image: BankOffers4 },];
+  const DealsOfTheWeek = [
+    { image: DealsOfTheWeek1 },
+    { image: DealsOfTheWeek2 },
+    { image: DealsOfTheWeek3 },
+    { image: DealsOfTheWeek4 },
+  ];
 
   const TopOffers = [
     { image: TopOffers1 },
@@ -214,7 +222,7 @@ const Home = () => {
       <div style={{ marginTop: "140PX" }}>
           <SlideShowBar  Images={SlideShowTop}/>
         <ProductList />
-        <OfferCard Images={BankOffers} heading={'Deels of Week'} />
+        <OfferCard Images={DealsOfTheWeek} heading={'Deals of the Week'} />
         <Box sx={{ backgroundColor: "#f7f7f7"}}>
           <Typography variant="h6" sx={{ textAlign: "start", fontWeight: 'bold' }}>
             {"Top Deals On Grocery"}

@@ -64,6 +64,7 @@ const ProductFilter = () => {
   return (
     <Box
       sx={{
+        marginTop: '130px',
         position: "relative", // or 'absolute' depending on your layout needs
         top: "28px",
       }}
