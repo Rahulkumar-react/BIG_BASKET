@@ -185,10 +185,10 @@ const ProductCard = ({ url }) => {
       {/* <Grid>
         <ProductFilter />
       </Grid> */}
-      <Grid container sx={{justifyContent: 'space-between',mt: 2.5,
+      {/* <Grid container sx={{justifyContent: 'space-between',mt: 2.5,
           mb: 10,}}>
         {Data.map((items, e) => (
-          <Grid xs={12} md={3.8}>
+          <Grid xs={12} md={3.4}>
             <Card
               sx={{
                 // width: { xs: "100%", sm: 264 },
@@ -322,8 +322,8 @@ const ProductCard = ({ url }) => {
             </Card>
           </Grid>
         ))}
-      </Grid>
-      {/* <Box
+      </Grid> */}
+      <Box
         sx={{
           mt: 2.5,
           mb: 10,
@@ -442,7 +442,7 @@ const ProductCard = ({ url }) => {
             </CardContent>
           </Card>
         ))}
-      </Box> */}
+      </Box>
     </>
   );
 };
