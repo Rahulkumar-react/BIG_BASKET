@@ -167,7 +167,7 @@ const ProductDetails = () => {
 
   return (
     <>
-      <Container>
+      <Container sx={{marginTop: '170px'}}>
         <Box sx={{ mt: 5 }}>
           <Grid
             container

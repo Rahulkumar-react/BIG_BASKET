@@ -121,11 +121,13 @@ const Navbar = () => {
         <Container maxWidth="lg">
           <Toolbar sx={{ display: "flex", alignItems: "end" }}>
             <Box sx={{ width: "15%" }}>
-              <img
-                style={{ width: "100%", height: "9vh" }}
-                src={Farmlogo}
-                alt=""
-              />
+              <Link to={"/"}>
+                <img
+                  style={{ width: "100%", height: "9vh" }}
+                  src={Farmlogo}
+                  alt=""
+                />
+              </Link>
             </Box>
 
             {/* <Typography
@@ -209,7 +211,7 @@ const Navbar = () => {
                 // onClick={handleProfileMenuOpen}
                 color="inherit"
               >
-                <Link to={"/dashboradd"} style={{color: "inherit"}}>
+                <Link to={"/dashboradd"} style={{ color: "inherit" }}>
                   <AccountCircle />
                 </Link>
               </IconButton>
