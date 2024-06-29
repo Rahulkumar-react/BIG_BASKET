@@ -39,7 +39,7 @@ const SlideShowBar = ({ Images }) => {
             padding: "0",
             listStyle: "none",
             borderRadius: "10px",
-            width: "15%",
+            width: "auto",
             backgroundColor: "#00000080",
             marginBottom: "40px",
           }}
