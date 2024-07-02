@@ -98,7 +98,7 @@ const NavMenuItem = () => {
       <CssBaseline />
       <AppBar
         position="fixed"
-        sx={{ backgroundColor: "#0c5273", marginTop: "80px" }}
+        sx={{ backgroundColor: "#0a2885", marginTop: "80px" }}
       >
         <Container maxWidth="lg">
           <IconButton

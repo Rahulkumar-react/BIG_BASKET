@@ -332,7 +332,7 @@ const ProductCard = ({ url }) => {
           display: "flex",
           flexWrap: "wrap",
           // justifyContent: 'space-evenly',
-          columnGap: {sm: 1, md: 2, lg: 2},
+          columnGap: { sm: 1, md: 2, lg: 2 },
         }}
       >
         {Data.map((items, e) => (
@@ -342,7 +342,7 @@ const ProductCard = ({ url }) => {
               mb: 2,
               display: "flex",
               boxShadow: "rgba(0, 0, 0, 0.24) 0px 1px 5px",
-              borderRadius: '20px',
+              borderRadius: "20px",
             }}
             key={items.ProductId}
           >
@@ -351,7 +351,7 @@ const ProductCard = ({ url }) => {
                 display: "flex",
                 flexFlow: "column",
                 justifyContent: "space-between",
-                width: '100%'
+                width: "100%",
               }}
             >
               <Grid>
@@ -381,7 +381,13 @@ const ProductCard = ({ url }) => {
                 <ProductName>{items.ProductName}</ProductName>
                 <FormControl sx={{ mt: 1, minWidth: "100%" }}>
                   <Select
-                    sx={{ paddingY: 0 }}
+                    sx={{
+                      paddingY: 0,
+                      "& .MuiInputBase-input": {
+                        border: "none",
+                        backgroundColor: "#f2f2f2",
+                      },
+                    }}
                     value={kilogram}
                     onChange={handleChange}
                     displayEmpty
@@ -409,37 +415,61 @@ const ProductCard = ({ url }) => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "end",
-                    columnGap: 2
+                    columnGap: 2,
                   }}
                 >
-                  {(orderCounts[items.ProductId] || 0) < 1 ? (<Button
-                    sx={{
-                      width: "100%",
-                      justifyContent: 'space-between',
-                      "&:hover": {
-                        backgroundColor: "#cc0000",
-                        color: "#ffffff",
-                      },
-                    }}
-                    variant="outlined"
-                    color="error"
-                    endIcon={<AddIcon />}
-                    onClick={() => OrderCountAdd(items.ProductId)}
-                  >
-                    Add
-                  </Button>)
-                  : 
-                  (<>
-                  <Grid sx={{ border: "1px solid",  display: "flex",
-                    alignItems: "center", padding: 1, borderRadius: '50%' }}>
-                    <RemoveIcon onClick={() => OrderCountLess(items.ProductId)}/>
-                  </Grid>
-                  <Typography sx={{fontSize: "18px"}}> {orderCounts[items.ProductId]}</Typography>
-                 
-                  <Grid sx={{ border: "1px solid",  display: "flex",
-                    alignItems: "center", padding: 1, borderRadius: '50%' }}>
-                    <AddIcon onClick={() => OrderCountAdd(items.ProductId)}/>
-                  </Grid></>)}
+                  {(orderCounts[items.ProductId] || 0) < 1 ? (
+                    <Button
+                      sx={{
+                        width: "100%",
+                        justifyContent: "space-between",
+                        "&:hover": {
+                          backgroundColor: "#cc0000",
+                          color: "#ffffff",
+                        },
+                      }}
+                      variant="outlined"
+                      color="error"
+                      endIcon={<AddIcon />}
+                      onClick={() => OrderCountAdd(items.ProductId)}
+                    >
+                      Add
+                    </Button>
+                  ) : (
+                    <>
+                      <Grid
+                        sx={{
+                          border: "1px solid",
+                          display: "flex",
+                          alignItems: "center",
+                          padding: 1,
+                          borderRadius: "50%",
+                        }}
+                      >
+                        <RemoveIcon
+                          onClick={() => OrderCountLess(items.ProductId)}
+                        />
+                      </Grid>
+                      <Typography sx={{ fontSize: "18px" }}>
+                        {" "}
+                        {orderCounts[items.ProductId]}
+                      </Typography>
+
+                      <Grid
+                        sx={{
+                          border: "1px solid",
+                          display: "flex",
+                          alignItems: "center",
+                          padding: 1,
+                          borderRadius: "50%",
+                        }}
+                      >
+                        <AddIcon
+                          onClick={() => OrderCountAdd(items.ProductId)}
+                        />
+                      </Grid>
+                    </>
+                  )}
                 </Grid>
               </Grid>
             </CardContent>

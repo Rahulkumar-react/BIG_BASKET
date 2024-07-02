@@ -10,61 +10,60 @@ import card4 from "../Assets/topstrip4.png";
 import card5 from "../Assets/topstrip5.png";
 import card6 from "../Assets/topstrip6.png";
 
-import Image1 from '../Assets/Image1.png';
-import Image2 from '../Assets/Image2.png';
-import Image3 from '../Assets/Image3.png';
-import Image4 from '../Assets/Image4.png';
-import Image5 from '../Assets/Image5.png';
-import Image6 from '../Assets/Image6.png';
+import Image1 from "../Assets/Image1.png";
+import Image2 from "../Assets/Image2.png";
+import Image3 from "../Assets/Image3.png";
+import Image4 from "../Assets/Image4.png";
+import Image5 from "../Assets/Image5.png";
+import Image6 from "../Assets/Image6.png";
 
-import SlideShow1 from '../../Pages/Assets/slideshow1.webp';
-import SlideShow2 from '../../Pages/Assets/slideshow2.webp';
-import SlideShow3 from '../../Pages/Assets/slideshow3.webp';
-import SlideShow4 from '../../Pages/Assets/slideshow4.webp';
+import SlideShow1 from "../../Pages/Assets/slideshow1.webp";
+import SlideShow2 from "../../Pages/Assets/slideshow2.webp";
+import SlideShow3 from "../../Pages/Assets/slideshow3.webp";
+import SlideShow4 from "../../Pages/Assets/slideshow4.webp";
 
-import DealsOfTheWeek1 from '../../Pages/Assets/Deals1.png';
-import DealsOfTheWeek2 from '../../Pages/Assets/Deals2.png';
-import DealsOfTheWeek3 from '../../Pages/Assets/Deals3.png';
-import DealsOfTheWeek4 from '../../Pages/Assets/Deals4.png';
+import DealsOfTheWeek1 from "../../Pages/Assets/Deals1.png";
+import DealsOfTheWeek2 from "../../Pages/Assets/Deals2.png";
+import DealsOfTheWeek3 from "../../Pages/Assets/Deals3.png";
+import DealsOfTheWeek4 from "../../Pages/Assets/Deals4.png";
 
-import TopOffers1 from '../../Pages/Assets/Topoffer1.webp';
-import TopOffers2 from '../../Pages/Assets/Topoffer2.webp';
-import TopOffers3 from '../../Pages/Assets/Topoffer3.webp';
-import TopOffers4 from '../../Pages/Assets/Topoffer4.webp';
+import TopOffers1 from "../../Pages/Assets/Topoffer1.webp";
+import TopOffers2 from "../../Pages/Assets/Topoffer2.webp";
+import TopOffers3 from "../../Pages/Assets/Topoffer3.webp";
+import TopOffers4 from "../../Pages/Assets/Topoffer4.webp";
 
-import FruitsandVegetables1 from '../../Pages/Assets/fruitsveg1.webp';
-import FruitsandVegetables2 from '../../Pages/Assets/fruitsveg2.webp';
-import FruitsandVegetables3 from '../../Pages/Assets/fruitsveg3.webp';
-import FruitsandVegetables4 from '../../Pages/Assets/fruitsveg4.webp';
+import FruitsandVegetables1 from "../../Pages/Assets/fruitsveg1.webp";
+import FruitsandVegetables2 from "../../Pages/Assets/fruitsveg2.webp";
+import FruitsandVegetables3 from "../../Pages/Assets/fruitsveg3.webp";
+import FruitsandVegetables4 from "../../Pages/Assets/fruitsveg4.webp";
 
-import YourDailyStaples1 from '../../Pages/Assets/yourDailyStaples1.webp';
-import YourDailyStaples2 from '../../Pages/Assets/yourDailyStaples2.webp';
-import YourDailyStaples3 from '../../Pages/Assets/yourDailyStaples3.webp';
-import YourDailyStaples4 from '../../Pages/Assets/yourDailyStaples4.webp';
-import YourDailyStaples5 from '../../Pages/Assets/yourDailyStaples5.webp';
-import YourDailyStaples6 from '../../Pages/Assets/yourDailyStaples6.webp';
+import YourDailyStaples1 from "../../Pages/Assets/yourDailyStaples1.webp";
+import YourDailyStaples2 from "../../Pages/Assets/yourDailyStaples2.webp";
+import YourDailyStaples3 from "../../Pages/Assets/yourDailyStaples3.webp";
+import YourDailyStaples4 from "../../Pages/Assets/yourDailyStaples4.webp";
+import YourDailyStaples5 from "../../Pages/Assets/yourDailyStaples5.webp";
+import YourDailyStaples6 from "../../Pages/Assets/yourDailyStaples6.webp";
 
-import Beverages1 from '../../Pages/Assets/Beverages1.webp';
-import Beverages2 from '../../Pages/Assets/Beverages2.webp';
-import Beverages3 from '../../Pages/Assets/Beverages3.webp';
-import Beverages4 from '../../Pages/Assets/Beverages4.webp';
-import Beverages5 from '../../Pages/Assets/Beverages5.webp';
-import Beverages6 from '../../Pages/Assets/Beverages6.webp';
+import Beverages1 from "../../Pages/Assets/Beverages1.webp";
+import Beverages2 from "../../Pages/Assets/Beverages2.webp";
+import Beverages3 from "../../Pages/Assets/Beverages3.webp";
+import Beverages4 from "../../Pages/Assets/Beverages4.webp";
+import Beverages5 from "../../Pages/Assets/Beverages5.webp";
+import Beverages6 from "../../Pages/Assets/Beverages6.webp";
 
-import SnacksStore1 from '../../Pages/Assets/SnacksStore1.webp';
-import SnacksStore2 from '../../Pages/Assets/SnacksStore2.webp';
-import SnacksStore3 from '../../Pages/Assets/SnacksStore3.webp';
-import SnacksStore4 from '../../Pages/Assets/SnacksStore4.webp';
+import SnacksStore1 from "../../Pages/Assets/SnacksStore1.webp";
+import SnacksStore2 from "../../Pages/Assets/SnacksStore2.webp";
+import SnacksStore3 from "../../Pages/Assets/SnacksStore3.webp";
+import SnacksStore4 from "../../Pages/Assets/SnacksStore4.webp";
 
-import CleaningHousehold1 from '../../Pages/Assets/Cleaning&Household1.webp';
-import CleaningHousehold2 from '../../Pages/Assets/Cleaning&Household2.webp';
-import CleaningHousehold3 from '../../Pages/Assets/Cleaning&Household3.webp';
-import CleaningHousehold4 from '../../Pages/Assets/Cleaning&Household4.webp';
+import CleaningHousehold1 from "../../Pages/Assets/Cleaning&Household1.webp";
+import CleaningHousehold2 from "../../Pages/Assets/Cleaning&Household2.webp";
+import CleaningHousehold3 from "../../Pages/Assets/Cleaning&Household3.webp";
+import CleaningHousehold4 from "../../Pages/Assets/Cleaning&Household4.webp";
 
-
-import SlideShowTop1 from '../../Pages/Assets/slideshowTop1.webp';
-import SlideShowTop2 from '../../Pages/Assets/slideshowTop2.webp';
-import SlideShowTop3 from '../../Pages/Assets/SlideShowTop3.png';
+import SlideShowTop1 from "../../Pages/Assets/slideshowTop1.webp";
+import SlideShowTop2 from "../../Pages/Assets/slideshowTop2.webp";
+import SlideShowTop3 from "../../Pages/Assets/SlideShowTop3.png";
 
 import makeup from "../Assets/makeup.png";
 import moisturiser from "../Assets/moisturiser.png";
@@ -73,7 +72,6 @@ import MensShaving from "../Assets/mens-shaving.png";
 import minimum30 from "../Assets/minimum-30.png";
 import BiggerSaving from "../Assets/bigger-saving.png";
 
-
 import ProductCard from "../Card/ProductCard";
 import OfferCard from "../Card/OfferCard";
 import Navbar from "../Nanbar";
@@ -81,6 +79,8 @@ import AdsCard from "../Card/AdsCard";
 import SlideShowBar from "../../Components/SlideShowBar";
 import AddPaymentMthods from "../../Components/AddPaymentMthods";
 import PaymentNavBar from "../../Components/PaymentNavBar";
+import ProductCardCarousel from "../Card/ProductCardCarousel";
+import DiscountCard from "../Card/DiscountCard";
 
 const ProductList = () => {
   const cards = [
@@ -131,14 +131,13 @@ const Home = () => {
     { img: SlideShowTop1 },
     { img: SlideShowTop2 },
     { img: SlideShowTop3 },
-  ]
+  ];
 
   const SlideShow = [
     { img: SlideShow1 },
     { img: SlideShow2 },
     { img: SlideShow3 },
     { img: SlideShow4 },
-
   ];
 
   const DealsOfTheWeek = [
@@ -200,7 +199,7 @@ const Home = () => {
     { items: perfumes },
     { items: MensShaving },
     { items: minimum30 },
-    { items: BiggerSaving }
+    { items: BiggerSaving },
   ];
 
   const HomeAndKitchen = [
@@ -215,32 +214,37 @@ const Home = () => {
   return (
     <>
       <div style={{ marginTop: "140PX" }}>
-          <SlideShowBar  Images={SlideShowTop}/>
+        <SlideShowBar Images={SlideShowTop} />
         <ProductList />
-        <OfferCard Images={DealsOfTheWeek} heading={'Deals of the Week'} />
-        <Box sx={{ backgroundColor: "#f7f7f7"}}>
-          <Typography variant="h6" sx={{ textAlign: "start", fontWeight: 'bold' }}>
+        <OfferCard Images={DealsOfTheWeek} heading={"Deals of the Week"} />
+        <Box>
+          <Typography
+            variant="h6"
+            sx={{ textAlign: "start", fontWeight: "bold" }}
+          >
             {"Top Deals On Grocery"}
           </Typography>
-          <ProductCard />
+          <ProductCardCarousel />
         </Box>
-        <OfferCard Images={TopOffers} heading={'Top Offers'} />
+        <DiscountCard />
+        <OfferCard Images={TopOffers} heading={"Top Offers"} />
       </div>
-      <OfferCard Images={FruitsandVegetables} heading={'Fruit and Vegetables'} />
-      <AdsCard Images={YourDailyStaples} heading={'Trending Brands'} />
-      <OfferCard Images={SnacksStore} heading={'The Snack Spot'} />
-      <AdsCard Images={Beverages} heading={'Beverages'} />
-      <OfferCard Images={CleaningHousehold} heading={'Cleaning & Household'} />
-      <AdsCard Images={daBeautyAndHygieneta} heading={'Beauty and Hygiene'} />
-      <AdsCard Images={HomeAndKitchen} heading={'Home and Kitchen'} />
+      <OfferCard
+        Images={FruitsandVegetables}
+        heading={"Fruit and Vegetables"}
+      />
+      <AdsCard Images={YourDailyStaples} heading={"Trending Brands"} />
+      <OfferCard Images={SnacksStore} heading={"The Snack Spot"} />
+      <AdsCard Images={Beverages} heading={"Beverages"} />
+      <OfferCard Images={CleaningHousehold} heading={"Cleaning & Household"} />
+      <AdsCard Images={daBeautyAndHygieneta} heading={"Beauty and Hygiene"} />
+      <AdsCard Images={HomeAndKitchen} heading={"Home and Kitchen"} />
       <br />
-      <div style={{  marginBottom: '20px' }}>
-        <SlideShowBar Images={SlideShow}/>
+      <div style={{ marginBottom: "20px" }}>
+        <SlideShowBar Images={SlideShow} />
       </div>
       <br />
     </>
-
-
   );
 };
 
