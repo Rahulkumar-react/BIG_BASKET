@@ -1,5 +1,5 @@
 import * as React from "react";
-import Farmlogo from "../Assets/Farm2Kitchen.png";
+import Farmlogo from "../Assets/Farm2Kitchens.png";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -118,7 +118,7 @@ const Navbar = () => {
       <Signin open={open} onClose={handleClose} />
       <AppBar
         position="fixed"
-        sx={{ paddingBottom: 1.5, backgroundColor: "#0078ad" }}
+        sx={{ paddingBottom: 1.5, backgroundColor: "#0f3cc9" }}
       >
         <Container maxWidth="lg">
           <Toolbar sx={{ display: "flex", alignItems: "end" }}>
@@ -172,9 +172,16 @@ const Navbar = () => {
                   <SearchIcon />
                 </IconButton>
                 <InputBase
-                  sx={{ ml: 1, flex: 1, color: "white" }}
-                  placeholder="Search Farm2Kitchen"
-                  inputProps={{ "aria-label": "Search Farm2Kitchen" }}
+                  sx={{
+                    ml: 1,
+                    flex: 1,
+                    color: "white",
+                    "&::placeholder": {
+                      color: "white",
+                    },
+                  }}
+                  placeholder="Search For Products"
+                  inputProps={{ "aria-label": "Search For Products" }}
                 />
                 <IconButton
                   sx={{ p: "10px", color: "white" }}

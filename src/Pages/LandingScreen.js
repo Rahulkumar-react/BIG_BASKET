@@ -10,7 +10,7 @@ import Home from "./Home/Home";
 
 const LandingScreen = () => {
   return (
-    <div style={{ backgroundColor: "#f7f7f7", paddingTop: "0px" }}>
+    <div style={{ backgroundColor: "white", paddingTop: "0px" }}>
       {/* <Box
          sx={{
           width: "100%",
