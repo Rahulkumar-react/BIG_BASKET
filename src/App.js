@@ -1,4 +1,4 @@
-// src/App.js
+
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react'; // Ensure @emotion/react is installed
@@ -13,7 +13,7 @@ function App() {
         <Navbar />
         <Router />
       </BrowserRouter>
-    // </ThemeProvider>
+    //</ThemeProvider>
   );
 }
 

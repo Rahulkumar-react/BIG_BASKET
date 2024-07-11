@@ -19,13 +19,31 @@ import { Button } from "@mui/material";
 import NavMenuItem from "./NavMenuItem";
 import { Link } from "react-router-dom";
 import Signin from "./Signin";
+import ProductCart from "../../Components/ProductCart";
+import { useTheme } from "@mui/material/styles";
 const Navbar = () => {
+  const theme = useTheme();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
+  const [openDrawer, setOpenDrawer] = React.useState(false);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const toggleDrawer =
+  (open) =>
+  (event) => {
+    if (
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
+      return;
+    }
+
+    setOpenDrawer(open);
+  };
+
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -119,6 +137,7 @@ const Navbar = () => {
       <AppBar
         position="fixed"
         sx={{ paddingBottom: 1.5, backgroundColor: "#0f3cc9" }}
+        // sx={{ paddingBottom: 1.5, backgroundColor: theme.palette.background.paper }}
       >
         <Container maxWidth="lg">
           <Toolbar sx={{ display: "flex", alignItems: "end" }}>
@@ -193,15 +212,19 @@ const Navbar = () => {
             </Box>
             {/* <Box sx={{ flexGrow: 1 }} /> */}
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <IconButton
-                size="large"
-                aria-label="show 17 new notifications"
-                color="inherit"
-              >
-                <Badge badgeContent={0} color="error">
-                  <ShoppingCartIcon />
-                </Badge>
-              </IconButton>
+              <Box>
+                <IconButton
+                  size="large"
+                  aria-label="show 17 new notifications"
+                  color="inherit"
+                  onClick={toggleDrawer(true)}
+                >
+                  <Badge badgeContent={0} color="error">
+                    <ShoppingCartIcon />
+                  </Badge>
+                </IconButton>
+                <ProductCart openDrawer={openDrawer} toggleDrawer={toggleDrawer} />
+              </Box>
               <IconButton
                 size="large"
                 edge="end"
