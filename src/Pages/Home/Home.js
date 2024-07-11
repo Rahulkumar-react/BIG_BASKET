@@ -63,7 +63,7 @@ import CleaningHousehold4 from "../../Pages/Assets/Cleaning&Household4.webp";
 
 import SlideShowTop1 from "../../Pages/Assets/slideshowTop1.webp";
 import SlideShowTop2 from "../../Pages/Assets/slideshowTop2.webp";
-import SlideShowTop3 from "../../Pages/Assets/SlideShowTop3.png";
+import SlideShowTop3 from "../../Pages/Assets/SlideShowTop4.png";
 
 import makeup from "../Assets/makeup.png";
 import moisturiser from "../Assets/moisturiser.png";

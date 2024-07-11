@@ -33,25 +33,13 @@ function PaymentNavBar() {
       <AppBar
         sx={{
         //   display: "flex",
-          backgroundColor: "rgba(94, 148, 0)",
+          // backgroundColor: "rgba(94, 148, 0)",
           width: "100%",
         //   justifyContent: "center",
         }}
       >
-        <Container maxWidth="xl" sx={{ marginY: 3 }}>
+        <Container maxWidth="xl" sx={{ marginY: 4 }}>
           <Toolbar disableGutters sx={{ justifyContent: "center" }}>
-            <Box
-              sx={{
-                width: "50px",
-                marginRight: "60px",
-              }}
-            >
-              <img
-                src={LogoImage}
-                alt="logo"
-                style={{ maxWidth: "100%", height: "auto" }}
-              />
-            </Box>
             <Box sx={{ width: "60%" }}>
               <Stepper activeStep={1}>
                 {steps.map((step, index) => (
